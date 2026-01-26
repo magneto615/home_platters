@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Home Portraits | Hand-Painted Platters by Eleni Tadejevic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F8F6F3;
+            --beige: #E8E3DD;
+            --warm-gray: #B8AFA5;
+            --charcoal: #3C3C3C;
+            --soft-black: #2B2B2B;
+            --accent-gold: #C9A56D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--soft-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .script {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid rgba(184, 175, 165, 0.2);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--soft-black);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 90px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(184, 175, 165, 0.03) 2px, rgba(184, 175, 165, 0.03) 4px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--soft-black);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text .byline {
+            font-size: 1rem;
+            color: var(--warm-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 2.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(43, 43, 43, 0.15);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: var(--soft-black);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--soft-black);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gold);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            border-color: var(--accent-gold);
+            color: var(--cream);
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--soft-black);
+        }
+
+        .section-header .script-accent {
+            font-size: 2rem;
+            color: var(--warm-gray);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin: 2rem auto;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--beige);
+            padding: 6rem 5%;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(184, 175, 165, 0.2);
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(43, 43, 43, 0.1);
+        }
+
+        .process-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .process-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--soft-black);
+        }
+
+        .process-card p {
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 1;
+            background: var(--beige);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(43, 43, 43, 0.8), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: var(--cream);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-overlay p {
+            color: var(--beige);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--cream);
+        }
+
+        .pricing-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .price-range {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--soft-black);
+            margin: 2rem 0;
+            font-weight: 500;
+        }
+
+        .pricing-details {
+            background: white;
+            padding: 3rem;
+            border-radius: 2px;
+            border: 1px solid rgba(184, 175, 165, 0.2);
+            margin-top: 2rem;
+        }
+
+        .pricing-details ul {
+            list-style: none;
+            text-align: left;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .pricing-details li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--beige);
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pricing-details li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing-details li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--beige);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 2px;
+            margin-top: 2rem;
+            border: 1px solid rgba(184, 175, 165, 0.2);
+        }
+
+        .email-link {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--soft-black);
+            text-decoration: none;
+            display: inline-block;
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-form {
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--soft-black);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--beige);
+            background: var(--cream);
+            color: var(--soft-black);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--soft-black);
+            color: var(--beige);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .process-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo script">Forever Home</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="script">Forever Home</h1>
+                <p class="subtitle">Portraits</p>
+                <p class="byline">By Eleni Tadejevic</p>
+                <p>A unique and thoughtful gift for new homeowners. Each platter is meticulously hand-painted with a portrait of their cherished home, creating a timeless keepsake that celebrates their special place.</p>
+                <a href="#contact" class="cta-button">Inquire Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='600' fill='%23E8E3DD'/%3E%3Ctext x='50%25' y='50%25' font-family='serif' font-size='24' fill='%23B8AFA5' text-anchor='middle' dominant-baseline='middle'%3EYour Beautiful Platters%3C/text%3E%3C/svg%3E" alt="Hand-painted home portrait platter">
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="section-header">
+                <span class="script-accent script">Capturing memories</span>
+                <h2>About the Art</h2>
+                <div class="divider"></div>
+            </div>
+            <p>Each Forever Home Portrait is lovingly hand-painted on premium ceramic platters. Using fine-tipped brushes and permanent ink, I carefully sketch and paint every architectural detail of your home, from the windows and doors to the landscaping and unique features that make it yours.</p>
+            <p>These custom portraits make perfect gifts for housewarmings, anniversaries, weddings, or any milestone moment. They're not just decorative pieces—they're heirlooms that capture the emotion and memory of a special place.</p>
+            <p>Every platter is signed, dated, and includes the family name, making it a truly personalized work of art.</p>
+        </div>
+    </section>
+
+    <section class="process fade-in" id="process">
+        <div class="section-header">
+            <span class="script-accent script">Simple & seamless</span>
+            <h2>How It Works</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">01</div>
+                <h3>Submit Your Photo</h3>
+                <p>Send me a clear photo of the home you'd like painted. Front views work best, but I can work with any angle.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">02</div>
+                <h3>Choose Your Style</h3>
+                <p>Select your preferred platter shape and size. Share any special details you'd like included in the portrait.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">03</div>
+                <h3>Receive Your Art</h3>
+                <p>I'll hand-paint your custom portrait and carefully package it for delivery. Each piece takes 2-3 weeks to complete.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery fade-in" id="gallery">
+        <div class="section-header">
+            <span class="script-accent script">Previous commissions</span>
+            <h2>Portfolio</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='400' fill='%23E8E3DD'/%3E%3Ctext x='50%25' y='50%25' font-family='serif' font-size='18' fill='%23B8AFA5' text-anchor='middle' dominant-baseline='middle'%3EThe Frees 2009%3C/text%3E%3C/svg%3E" alt="Coastal home platter">
+                <div class="gallery-overlay">
+                    <h4>The Frees, 2009</h4>
+                    <p>Coastal Ranch Home</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='400' fill='%23E8E3DD'/%3E%3Ctext x='50%25' y='50%25' font-family='serif' font-size='18' fill='%23B8AFA5' text-anchor='middle' dominant-baseline='middle'%3EThe Brodys%3C/text%3E%3C/svg%3E" alt="Colonial home platter">
+                <div class="gallery-overlay">
+                    <h4>The Brodys</h4>
+                    <p>Colonial Style Home</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='400' fill='%23E8E3DD'/%3E%3Ctext x='50%25' y='50%25' font-family='serif' font-size='18' fill='%23B8AFA5' text-anchor='middle' dominant-baseline='middle'%3EThe Smiths 2025%3C/text%3E%3C/svg%3E" alt="Craftsman home platter">
+                <div class="gallery-overlay">
+                    <h4>The Smiths, 2025</h4>
+                    <p>Craftsman Bungalow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing fade-in" id="pricing">
+        <div class="pricing-content">
+            <div class="section-header">
+                <span class="script-accent script">Investment</span>
+                <h2>Pricing</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="price-range">$80 — $120+</div>
+            <div class="pricing-details">
+                <p style="color: var(--charcoal); margin-bottom: 2rem;">Pricing varies based on platter size, shape, and complexity of architectural details.</p>
+                <ul>
+                    <li>Hand-painted custom portrait</li>
+                    <li>Premium ceramic platter</li>
+                    <li>Personalized with family name & year</li>
+                    <li>Signed by artist</li>
+                    <li>Carefully packaged for safe delivery</li>
+                    <li>Perfect for display or special occasions</li>
+                </ul>
+                <a href="#contact" class="cta-button" style="margin-top: 2rem;">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact fade-in" id="contact">
+        <div class="contact-content">
+            <div class="section-header">
+                <span class="script-accent script">Let's create together</span>
+                <h2>Get in Touch</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-info">
+                <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send me an email to discuss your project.</p>
+                <a href="mailto:foreverhomeportraits@gmail.com" class="email-link">foreverhomeportraits@gmail.com</a>
+                
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell me about your home</label>
+                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter style, and any special requests..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Forever Home Portraits | Hand-Painted by Eleni Tadejevic</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Create mailto link with form data
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            const mailtoLink = `mailto:foreverhomeportraits@gmail.com?subject=Commission Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            window.location.href = mailtoLink;
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
