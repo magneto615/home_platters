@@ -76,12 +76,46 @@
         }
 
         .logo {
-            font-family: 'Great Vibes', cursive !important;
-            font-size: 3rem;
-            color: var(--soft-black);
-            text-decoration: none;
-            text-transform: none !important;
-            letter-spacing: 0 !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile menu toggle button */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--soft-black);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         nav ul {
@@ -312,7 +346,7 @@
         /* Process Section */
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -616,12 +650,44 @@
                 padding: 1rem 5%;
             }
             
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
             nav ul {
                 display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid var(--beige);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul a {
+                display: block;
+                padding: 1rem 5%;
+                font-size: 1rem;
             }
 
-            .logo {
-                font-size: 2rem;
+            .logo img {
+                height: 50px;
             }
             
             /* Adjust section padding for mobile */
@@ -712,7 +778,7 @@
 
         @media (min-width: 969px) and (max-width: 1200px) {
             .process-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
         }
         
@@ -722,8 +788,8 @@
                 font-size: 2rem;
             }
             
-            .logo {
-                font-size: 1.5rem;
+            .logo img {
+                height: 40px;
             }
             
             .section-header h2 {
@@ -745,10 +811,18 @@
 <body>
     <nav>
         <div class="container">
-            <a href="#" class="logo script">Home Painted Platters</a>
-            <ul>
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Home Painted Platters" style="height: 60px; width: auto;">
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
                 <li><a href="#about">About</a></li>
-                <li><a href="#process">How It Works</a></li>
+                <li><a href="#process">How to Order</a></li>
+                <li><a href="#care">Care</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -773,7 +847,6 @@
     <section class="about" id="about">
         <div class="about-content">
             <div class="section-header">
-                <span class="script-accent script">Capturing memories</span>
                 <h2>About the Art</h2>
                 <div class="divider"></div>
             </div>
@@ -785,8 +858,7 @@
 
     <section class="process" id="process">
         <div class="section-header">
-            <span class="script-accent script">Simple & seamless</span>
-            <h2>How It Works</h2>
+            <h2>How to Order</h2>
             <div class="divider"></div>
         </div>
         <div class="process-grid">
@@ -805,18 +877,38 @@
                 <h3>Receive Your Art</h3>
                 <p>I'll hand-paint your custom portrait and carefully package it for delivery. Each piece takes 3-4 weeks to complete.</p>
             </div>
-            <div class="process-card">
-                <div class="process-number">04</div>
-                <h3>Care Instructions</h3>
-                <p>Hand wash only with gentle soap and water. Do not put in dishwasher or microwave to preserve the artwork.</p>
+        </div>
+    </section>
+
+    <section class="care" id="care" style="background: white; padding: 5rem 5%;">
+        <div class="section-header">
+            <h2>Care Instructions</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="care-content" style="max-width: 800px; margin: 3rem auto; text-align: center;">
+            <p style="font-size: 1.2rem; color: var(--charcoal); line-height: 1.8; margin-bottom: 2rem;">
+                To preserve the beauty and longevity of your hand-painted platter, please follow these care guidelines:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="padding: 2rem; background: var(--cream); border-radius: 2px;">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--soft-black);">Hand Wash Only</h3>
+                    <p style="color: var(--charcoal);">Clean gently with mild soap and warm water. Pat dry with a soft cloth.</p>
+                </div>
+                <div style="padding: 2rem; background: var(--cream); border-radius: 2px;">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--soft-black);">No Dishwasher</h3>
+                    <p style="color: var(--charcoal);">Do not place in the dishwasher as high heat may damage the artwork.</p>
+                </div>
+                <div style="padding: 2rem; background: var(--cream); border-radius: 2px;">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--soft-black);">Display Only</h3>
+                    <p style="color: var(--charcoal);">Not microwave-safe. These platters are designed for decorative display.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="gallery" id="gallery">
         <div class="section-header">
-            <span class="script-accent script">Previous commissions</span>
-            <h2>Portfolio</h2>
+            <h2>Previous Commissions</h2>
             <div class="divider"></div>
         </div>
         <div class="gallery-grid">
@@ -874,14 +966,14 @@
             
             <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 3rem 0;">
                 <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">9" Platter</h3>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">11" Platter</h3>
                     <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$80</div>
                     <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Perfect for smaller homes or as part of a collection</p>
                 </div>
                 
                 <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
                     <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">15" Platter</h3>
-                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$120</div>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$120-$150</div>
                     <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Showcases intricate architectural details beautifully</p>
                 </div>
             </div>
@@ -891,11 +983,11 @@
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 600px; margin: 0 auto;">
                     <div style="text-align: center; padding: 1.5rem; background: var(--cream); border-radius: 2px;">
                         <p style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 600;">$10</p>
-                        <p style="color: var(--charcoal);">9" Stand</p>
+                        <p style="color: var(--charcoal);">Small Plate Stand</p>
                     </div>
                     <div style="text-align: center; padding: 1.5rem; background: var(--cream); border-radius: 2px;">
                         <p style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 600;">$15</p>
-                        <p style="color: var(--charcoal);">15" Stand</p>
+                        <p style="color: var(--charcoal);">Large Platter Stand</p>
                     </div>
                 </div>
             </div>
@@ -908,7 +1000,7 @@
                     <div style="margin-bottom: 1.5rem;">
                         <label style="display: block; margin-bottom: 0.5rem; color: var(--soft-black); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Platter Size</label>
                         <select id="platterSize" style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
-                            <option value="9">9" Platter (11×11×4", 3 lbs)</option>
+                            <option value="9">11" Platter (11×11×4", 3 lbs)</option>
                             <option value="15">15" Platter (17×12×4", 4 lbs)</option>
                         </select>
                     </div>
@@ -927,32 +1019,6 @@
                 </div>
             </div>
             
-            <div class="pricing-details" style="background: white; padding: 3rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2); margin-top: 2rem;">
-                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; color: var(--soft-black);">What's Included</h3>
-                <ul style="list-style: none; text-align: left; max-width: 500px; margin: 0 auto;">
-                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
-                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
-                        Hand-painted custom home portrait
-                    </li>
-                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
-                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
-                        Premium ceramic platter
-                    </li>
-                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
-                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
-                        Personalized with family name & year
-                    </li>
-                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
-                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
-                        Signed by artist
-                    </li>
-                    <li style="padding: 1rem 0; color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
-                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
-                        Carefully packaged for safe delivery
-                    </li>
-                </ul>
-                <a href="#contact" class="cta-button" style="margin-top: 2rem; display: inline-block;">Request a Quote</a>
-            </div>
         </div>
     </section>
 
@@ -964,7 +1030,7 @@
             </div>
             <div class="contact-info">
                 <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
-                <a href="/cdn-cgi/l/email-protection#543b26303126143c3b393124353d3a20313024383520203126277a373b39" class="email-link"><span class="__cf_email__" data-cfemail="472835232235072f282a2237262e29332223372b2633332235346924282a">[email&#160;protected]</span></a>
+                <a href="/cdn-cgi/l/email-protection#dcb3aeb8b9ae9cb4b3b1b9acbdb5b2a8b9b8acb0bda8a8b9aeaff2bfb3b1" class="email-link"><span class="__cf_email__" data-cfemail="3e514c5a5b4c7e5651535b4e5f57504a5b5a4e525f4a4a5b4c4d105d5153">[email&#160;protected]</span></a>
                 
                 <form class="contact-form" onsubmit="handleSubmit(event)">
                     <div class="form-group">
@@ -998,7 +1064,7 @@
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Accurate USPS Priority Mail shipping calculator
         // Origin: 07652 (Kinnelon, NJ)
         // Rates based on 2025 USPS Priority Mail pricing
@@ -1062,7 +1128,7 @@
             }
             
             // USPS Priority Mail rates by weight and zone (2025 estimates)
-            // 9" platter: 11×11×4", 3 lbs actual weight
+            // 11" platter: 11×11×4", 3 lbs actual weight
             // 15" platter: 17×12×4", 4 lbs actual (dimensional weight ~4.9 lbs, so use 5 lb rate)
             
             const rates = {
@@ -1124,4 +1190,40 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('hre
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    const navMenu = document.getElementById('navMenu');
+                    const menuToggle = document.getElementById('mobileMenuToggle');
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navMenu.contains(event.target) || mobileMenuToggle.contains(event.target);
+            if (!isClickInsideNav && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
