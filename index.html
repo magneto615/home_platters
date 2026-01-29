@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever Home Portraits | Hand-Painted Platters by Eleni Tadejevic</title>
+    <title>Home Painted Platters | Hand-Painted Home Portraits by Eleni Tadejevic</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -76,6 +76,7 @@
         }
 
         .logo {
+            font-family: 'Great Vibes', cursive;
             font-size: 2rem;
             color: var(--soft-black);
             text-decoration: none;
@@ -309,7 +310,7 @@
         /* Process Section */
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 4rem;
             margin-top: 3rem;
         }
@@ -598,6 +599,12 @@
             }
         }
 
+        @media (min-width: 969px) and (max-width: 1200px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
@@ -607,10 +614,10 @@
 <body>
     <nav>
         <div class="container">
-            <a href="#" class="logo script">Forever Home</a>
+            <a href="#" class="logo script">Home Painted Platters</a>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#process">Process</a></li>
+                <li><a href="#process">How It Works</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -621,14 +628,13 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="script">Forever Home</h1>
-                <p class="subtitle">Portraits</p>
+                <h1 class="script">Home Painted Platters</h1>
                 <p class="byline">By Eleni Tadejevic</p>
                 <p>A unique and thoughtful gift for new homeowners. Each platter is meticulously hand-painted with a portrait of their cherished home, creating a timeless keepsake that celebrates their special place.</p>
                 <a href="#contact" class="cta-button">Inquire Now</a>
             </div>
             <div class="hero-image">
-                <img src="images/hero-promo.jpg" alt="Forever Home Portraits - Hand-painted platters featuring The Fries, The Brodys, and The Smiths">
+                <img src="images/hero-promo.jpg" alt="Home Painted Platters - Hand-painted home portraits">
             </div>
         </div>
     </section>
@@ -640,8 +646,8 @@
                 <h2>About the Art</h2>
                 <div class="divider"></div>
             </div>
-            <p>Each Forever Home Portrait is lovingly hand-painted on premium ceramic platters. Using fine-tipped brushes and permanent ink, I carefully sketch and paint every architectural detail of your home, from the windows and doors to the landscaping and unique features that make it yours.</p>
-            <p>These custom portraits make perfect gifts for housewarmings, anniversaries, weddings, or any milestone moment. They're not just decorative pieces—they're heirlooms that capture the emotion and memory of a special place.</p>
+            <p>Each Home Painted Platter is lovingly hand-painted on premium ceramic platters. Using fine-tipped brushes and permanent ink, I carefully sketch and paint every architectural detail of your home, from the windows and doors to the landscaping and unique features that make it yours.</p>
+            <p>These custom home portraits make perfect gifts for housewarmings, anniversaries, weddings, or any milestone moment. They're not just decorative pieces—they're heirlooms that capture the emotion and memory of a special place.</p>
             <p>Every platter is signed, dated, and includes the family name, making it a truly personalized work of art.</p>
         </div>
     </section>
@@ -656,17 +662,22 @@
             <div class="process-card">
                 <div class="process-number">01</div>
                 <h3>Submit Your Photo</h3>
-                <p>Send me a clear photo of the home you'd like painted. Front views work best, but I can work with any angle.</p>
+                <p>Send a clear photo of the home you'd like painted. Front views work best, but any angle can work.</p>
             </div>
             <div class="process-card">
                 <div class="process-number">02</div>
-                <h3>Choose Your Style</h3>
+                <h3>Choose Your Platter</h3>
                 <p>Select your preferred platter shape and size. Share any special details you'd like included in the portrait.</p>
             </div>
             <div class="process-card">
                 <div class="process-number">03</div>
                 <h3>Receive Your Art</h3>
-                <p>I'll hand-paint your custom portrait and carefully package it for delivery. Each piece takes 2-3 weeks to complete.</p>
+                <p>I'll hand-paint your custom portrait and carefully package it for delivery. Each piece takes 3-4 weeks to complete.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">04</div>
+                <h3>Care Instructions</h3>
+                <p>Hand wash only with gentle soap and water. Do not put in dishwasher or microwave to preserve the artwork.</p>
             </div>
         </div>
     </section>
@@ -726,22 +737,90 @@
     <section class="pricing" id="pricing">
         <div class="pricing-content">
             <div class="section-header">
-                <span class="script-accent script">Investment</span>
                 <h2>Pricing</h2>
                 <div class="divider"></div>
             </div>
-            <div class="price-range">$80 — $120+</div>
-            <div class="pricing-details">
-                <p style="color: var(--charcoal); margin-bottom: 2rem;">Pricing varies based on platter size, shape, and complexity of architectural details.</p>
-                <ul>
-                    <li>Hand-painted custom portrait</li>
-                    <li>Premium ceramic platter</li>
-                    <li>Personalized with family name & year</li>
-                    <li>Signed by artist</li>
-                    <li>Carefully packaged for safe delivery</li>
-                    <li>Perfect for display or special occasions</li>
+            
+            <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 3rem 0;">
+                <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">9" Platter</h3>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$80</div>
+                    <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Perfect for smaller homes or as part of a collection</p>
+                </div>
+                
+                <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">15" Platter</h3>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$120</div>
+                    <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Showcases intricate architectural details beautifully</p>
+                </div>
+            </div>
+            
+            <div class="pricing-details" style="background: white; padding: 3rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2); margin-top: 2rem;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: var(--soft-black);">Additional Options</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 600px; margin: 0 auto;">
+                    <div style="text-align: center; padding: 1.5rem; background: var(--cream); border-radius: 2px;">
+                        <p style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 600;">$10</p>
+                        <p style="color: var(--charcoal);">9" Stand</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: var(--cream); border-radius: 2px;">
+                        <p style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 600;">$15</p>
+                        <p style="color: var(--charcoal);">15" Stand</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-details" style="background: white; padding: 3rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2); margin-top: 2rem;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: var(--soft-black);">Shipping Cost Estimator</h3>
+                <p style="text-align: center; color: var(--charcoal); margin-bottom: 2rem; font-size: 0.9rem;">Estimates based on USPS Priority Mail</p>
+                
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--soft-black); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Platter Size</label>
+                        <select id="platterSize" style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                            <option value="9">9" Platter (11×11×4", 3 lbs)</option>
+                            <option value="15">15" Platter (17×12×4", 4 lbs)</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--soft-black); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Destination ZIP Code</label>
+                        <input type="text" id="zipCode" placeholder="Enter destination ZIP code" maxlength="5" style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                    </div>
+                    
+                    <button onclick="calculateShipping()" style="width: 100%; padding: 1rem; background-color: var(--soft-black); color: var(--cream); border: 2px solid var(--soft-black); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;">Calculate Shipping</button>
+                    
+                    <div id="shippingResult" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--beige); border-radius: 2px; display: none;">
+                        <p style="font-size: 1.2rem; color: var(--soft-black); margin: 0; font-weight: 500;"></p>
+                        <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.5rem;"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-details" style="background: white; padding: 3rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2); margin-top: 2rem;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; color: var(--soft-black);">What's Included</h3>
+                <ul style="list-style: none; text-align: left; max-width: 500px; margin: 0 auto;">
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
+                        Hand-painted custom home portrait
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
+                        Premium ceramic platter
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
+                        Personalized with family name & year
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--beige); color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
+                        Signed by artist
+                    </li>
+                    <li style="padding: 1rem 0; color: var(--charcoal); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">✓</span>
+                        Carefully packaged for safe delivery
+                    </li>
                 </ul>
-                <a href="#contact" class="cta-button" style="margin-top: 2rem;">Request a Quote</a>
+                <a href="#contact" class="cta-button" style="margin-top: 2rem; display: inline-block;">Request a Quote</a>
             </div>
         </div>
     </section>
@@ -749,13 +828,12 @@
     <section class="contact" id="contact">
         <div class="contact-content">
             <div class="section-header">
-                <span class="script-accent script">Let's create together</span>
                 <h2>Get in Touch</h2>
                 <div class="divider"></div>
             </div>
             <div class="contact-info">
-                <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send me an email to discuss your project.</p>
-                <a href="mailto:foreverhomeportraits@gmail.com" class="email-link">foreverhomeportraits@gmail.com</a>
+                <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
+                <a href="/cdn-cgi/l/email-protection#92fde0f6f7e0d2fafdfff7e2f3fbfce6f7f6e2fef3e6e6f7e0e1bcf1fdff" class="email-link"><span class="__cf_email__" data-cfemail="f49b86909186b49c9b999184959d9a8091908498958080918687da979b99">[email&#160;protected]</span></a>
                 
                 <form class="contact-form" onsubmit="handleSubmit(event)">
                     <div class="form-group">
@@ -767,8 +845,16 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Tell me about your home</label>
-                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter style, and any special requests..."></textarea>
+                        <label for="homeAddress">Home Address (Optional)</label>
+                        <input type="text" id="homeAddress" name="homeAddress" placeholder="For Google Street View reference">
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Upload Photo (Optional)</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" style="padding: 0.5rem;">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell about your home</label>
+                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter size and shape, and any special requests..."></textarea>
                     </div>
                     <button type="submit" class="cta-button" style="width: 100%;">Send Inquiry</button>
                 </form>
@@ -777,11 +863,105 @@
     </section>
 
     <footer>
-        <p>© 2026 Forever Home Portraits | Hand-Painted by Eleni Tadejevic</p>
+        <p>© 2026 Home Painted Platters | Hand-Painted by Eleni Tadejevic</p>
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Accurate USPS Priority Mail shipping calculator
+        // Origin: 07652 (Kinnelon, NJ)
+        // Rates based on 2025 USPS Priority Mail pricing
+        
+        function calculateShipping() {
+            const platterSize = document.getElementById('platterSize').value;
+            const zipCode = document.getElementById('zipCode').value.trim();
+            const resultDiv = document.getElementById('shippingResult');
+            const resultPrice = resultDiv.querySelector('p:first-child');
+            const resultDetails = resultDiv.querySelector('p:last-child');
+            
+            // Validate ZIP code
+            if (!zipCode || zipCode.length !== 5 || !/^\d{5}$/.test(zipCode)) {
+                resultDiv.style.display = 'block';
+                resultPrice.textContent = 'Please enter a valid 5-digit ZIP code';
+                resultDetails.textContent = '';
+                return;
+            }
+            
+            const zip = parseInt(zipCode);
+            
+            // Determine USPS zone from 07652 based on destination ZIP prefix
+            // Using first 3 digits for zone determination
+            const prefix = Math.floor(zip / 100); // Gets first 3 digits
+            let zone;
+            let zoneName;
+            
+            if (prefix >= 0 && prefix <= 99) {
+                // 00000-09999: Zone 1-2 (NJ, NY, CT, nearby areas)
+                zone = 2; 
+                zoneName = "Local Zone (NJ, NY, nearby)";
+            } else if (prefix >= 100 && prefix <= 199) {
+                // 10000-19999: Zone 3 (New England, PA, DE)
+                zone = 3; 
+                zoneName = "Zone 3 (New England, PA)";
+            } else if (prefix >= 200 && prefix <= 269) {
+                // 20000-26999: Zone 4 (DC, MD, VA, WV)
+                zone = 4; 
+                zoneName = "Zone 4 (Mid-Atlantic)";
+            } else if (prefix >= 270 && prefix <= 399) {
+                // 27000-39999: Zone 5 (Southeast)
+                zone = 5; 
+                zoneName = "Zone 5 (Southeast)";
+            } else if (prefix >= 400 && prefix <= 549) {
+                // 40000-54999: Zone 6 (Midwest, Central)
+                zone = 6; 
+                zoneName = "Zone 6 (Midwest)";
+            } else if (prefix >= 550 && prefix <= 749) {
+                // 55000-74999: Zone 7 (Mountain states, Northern Central)
+                zone = 7; 
+                zoneName = "Zone 7 (Mountain states)";
+            } else if (prefix >= 750 && prefix <= 999) {
+                // 75000-99999: Zone 8 (West Coast, Southwest)
+                zone = 8; 
+                zoneName = "Zone 8 (West Coast)";
+            } else {
+                resultDiv.style.display = 'block';
+                resultPrice.textContent = 'ZIP code out of range';
+                resultDetails.textContent = '';
+                return;
+            }
+            
+            // USPS Priority Mail rates by weight and zone (2025 estimates)
+            // 9" platter: 11×11×4", 3 lbs actual weight
+            // 15" platter: 17×12×4", 4 lbs actual (dimensional weight ~4.9 lbs, so use 5 lb rate)
+            
+            const rates = {
+                '9': {  // 3 lbs
+                    2: 10.50,
+                    3: 11.50,
+                    4: 12.50,
+                    5: 14.00,
+                    6: 16.00,
+                    7: 18.50,
+                    8: 21.00
+                },
+                '15': {  // 5 lbs (dimensional weight)
+                    2: 12.50,
+                    3: 14.00,
+                    4: 15.50,
+                    5: 17.50,
+                    6: 20.50,
+                    7: 23.50,
+                    8: 26.50
+                }
+            };
+            
+            const shippingCost = rates[platterSize][zone];
+            
+            resultDiv.style.display = 'block';
+            resultPrice.textContent = `Estimated Shipping: $${shippingCost.toFixed(2)}`;
+            resultDetails.textContent = `${zoneName} • USPS Priority Mail (2-3 business days)`;
+        }
+    
         // Form submission handler
         function handleSubmit(event) {
             event.preventDefault();
@@ -791,9 +971,20 @@
             // Create mailto link with form data
             const name = formData.get('name');
             const email = formData.get('email');
+            const homeAddress = formData.get('homeAddress');
             const message = formData.get('message');
             
-            const mailtoLink = `mailto:foreverhomeportraits@gmail.com?subject=Commission Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            let body = `Name: ${name}\nEmail: ${email}\n`;
+            if (homeAddress) {
+                body += `Home Address: ${homeAddress}\n`;
+            }
+            body += `\nMessage:\n${message}`;
+            
+            if (formData.get('photo') && formData.get('photo').name) {
+                body += `\n\n(Note: A photo was selected but cannot be sent via mailto. Please attach it when you reply to this email.)`;
+            }
+            
+            const mailtoLink = `mailto:order@homepaintedplatters.com?subject=Commission Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
             
             window.location.href = mailtoLink;
         }
@@ -812,3 +1003,5 @@
             });
         });
     </script>
+</body>
+</html>
