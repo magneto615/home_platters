@@ -880,7 +880,7 @@
         </div>
     </section>
 
-    <section class="care" id="care" style="background: white; padding: 5rem 5%;">
+    <section class="care" id="care" style="background: var(--cream); padding: 5rem 5%;">
         <div class="section-header">
             <h2>Care Instructions</h2>
             <div class="divider"></div>
@@ -906,7 +906,7 @@
         </div>
     </section>
 
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery" style="background: white; padding: 5rem 5%;">
         <div class="section-header">
             <h2>Previous Commissions</h2>
             <div class="divider"></div>
@@ -1032,7 +1032,13 @@
                 <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
                 <a href="mailto:order@homepaintedplatters.com" class="email-link">order@homepaintedplatters.com</a>
                 
-                <form class="contact-form" onsubmit="handleSubmit(event)">
+                <form class="contact-form" name="contact" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <!-- Hidden fields for Netlify -->
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p style="display: none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
+                    
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -1060,7 +1066,7 @@
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Accurate USPS Priority Mail shipping calculator
         // Origin: 07652 (Kinnelon, NJ)
         // Rates based on 2025 USPS Priority Mail pricing
@@ -1156,27 +1162,6 @@
         }
     
         // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            // Create mailto link with form data
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const homeAddress = formData.get('homeAddress');
-            const message = formData.get('message');
-            
-            let body = `Name: ${name}\nEmail: ${email}\n`;
-            if (homeAddress) {
-                body += `Home Address: ${homeAddress}\n`;
-            }
-            body += `\nMessage:\n${message}`;
-            
-            const mailtoLink = `mailto:order@homepaintedplatters.com?subject=Commission Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
-            
-            window.location.href = mailtoLink;
-        }
 
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1205,9 +1190,4 @@
         
         mobileMenuToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = navMenu.contains(event.target) || mobileMenuToggle.contain
+            mobileMenu
