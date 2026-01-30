@@ -1199,6 +1199,7 @@
         mobileMenuToggle.addEventListener('click', function() {
             const isActive = navMenu.classList.contains('active');
             navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
             this.setAttribute('aria-expanded', !isActive);
         });
 
@@ -1207,6 +1208,7 @@
             const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.target);
             if (!isClickInside && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         });
@@ -1322,6 +1324,7 @@
                     // Close mobile menu if open (using variables defined at top)
                     if (navMenu.classList.contains('active')) {
                         navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
                         mobileMenuToggle.setAttribute('aria-expanded', 'false');
                     }
                 }
