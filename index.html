@@ -800,6 +800,12 @@
                 padding: 1rem 2rem;
                 font-size: 0.8rem;
             }
+            
+            /* Care cards stack on mobile */
+            .care-content > div {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
         }
 
         /* Smooth Scroll */
@@ -856,7 +862,7 @@
         </div>
     </section>
 
-    <section class="process" id="process">
+    <section class="process" id="process" style="background: white; padding: 5rem 5%;">
         <div class="section-header">
             <h2>How to Order</h2>
             <div class="divider"></div>
@@ -880,27 +886,24 @@
         </div>
     </section>
 
-    <section class="care" id="care" style="background: var(--cream); padding: 5rem 5%;">
+    <section class="care" id="care" style="background: var(--beige); padding: 5rem 5%;">
         <div class="section-header">
             <h2>Care Instructions</h2>
             <div class="divider"></div>
         </div>
-        <div class="care-content" style="max-width: 800px; margin: 3rem auto; text-align: center;">
-            <p style="font-size: 1.2rem; color: var(--charcoal); line-height: 1.8; margin-bottom: 2rem;">
-                To preserve the beauty and longevity of your hand-painted piece, please follow these care guidelines:
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="padding: 2rem; background: var(--cream); border-radius: 2px;">
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--soft-black);">Hand Wash Only</h3>
-                    <p style="color: var(--charcoal);">Clean gently with mild soap and warm water. Pat dry with a soft cloth.</p>
+        <div class="care-content" style="max-width: 900px; margin: 3rem auto;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+                <div style="text-align: left; padding: 2rem; background: white; border-left: 4px solid var(--accent-gold);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--soft-black);">Hand Wash Only</h3>
+                    <p style="color: var(--charcoal); font-size: 0.9rem; line-height: 1.6;">Clean gently with mild soap and warm water. Pat dry with a soft cloth.</p>
                 </div>
-                <div style="padding: 2rem; background: var(--cream); border-radius: 2px;">
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--soft-black);">No Dishwasher</h3>
-                    <p style="color: var(--charcoal);">Do not place in the dishwasher as high heat may damage the artwork.</p>
+                <div style="text-align: left; padding: 2rem; background: white; border-left: 4px solid var(--accent-gold);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--soft-black);">No Dishwasher</h3>
+                    <p style="color: var(--charcoal); font-size: 0.9rem; line-height: 1.6;">Do not place in the dishwasher as high heat may damage the artwork.</p>
                 </div>
-                <div style="padding: 2rem; background: var(--cream); border-radius: 2px;">
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--soft-black);">Not Food-Safe</h3>
-                    <p style="color: var(--charcoal);">These pieces are not food-safe. They are designed to be decorative only. Not microwave-safe.</p>
+                <div style="text-align: left; padding: 2rem; background: white; border-left: 4px solid var(--accent-gold);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--soft-black);">Not Food-Safe</h3>
+                    <p style="color: var(--charcoal); font-size: 0.9rem; line-height: 1.6;">These pieces are not food-safe. Designed to be decorative only. Not microwave-safe.</p>
                 </div>
             </div>
         </div>
@@ -1030,9 +1033,9 @@
             </div>
             <div class="contact-info">
                 <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
-                <a href="/cdn-cgi/l/email-protection#513e2335342311393e3c342130383f253435213d3025253423227f323e3c" class="email-link"><span class="__cf_email__" data-cfemail="335c41575641735b5c5e5643525a5d475657435f5247475641401d505c5e">[email&#160;protected]</span></a>
+                <a href="mailto:order@homepaintedplatters.com" class="email-link">order@homepaintedplatters.com</a>
                 
-                <form class="contact-form" name="contact" method="POST" action="https://usebasin.com/f/45ca551ff4bd" enctype="multipart/form-data">
+                <form class="contact-form" name="contact" method="POST" action="https://usebasin.com/f/YOUR_FORM_ID" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -1068,7 +1071,7 @@
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Accurate USPS Priority Mail shipping calculator
         // Origin: 07652 (Kinnelon, NJ)
         // Rates based on 2025 USPS Priority Mail pricing
@@ -1077,8 +1080,9 @@
             const platterSize = document.getElementById('platterSize').value;
             const zipCode = document.getElementById('zipCode').value.trim();
             const resultDiv = document.getElementById('shippingResult');
-            const resultPrice = resultDiv.querySelector('p:first-child');
-            const resultDetails = resultDiv.querySelector('p:last-child');
+            const paragraphs = resultDiv.getElementsByTagName('p');
+            const resultPrice = paragraphs[0];
+            const resultDetails = paragraphs[1];
             
             // Validate ZIP code
             if (!zipCode || zipCode.length !== 5 || !/^\d{5}$/.test(zipCode)) {
@@ -1188,4 +1192,3 @@
         
         // Mobile menu toggle
         const mobi
-
