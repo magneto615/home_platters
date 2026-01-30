@@ -800,12 +800,6 @@
                 padding: 1rem 2rem;
                 font-size: 0.8rem;
             }
-            
-            /* Care cards stack on mobile */
-            .care-content > div {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
-            }
         }
 
         /* Smooth Scroll */
@@ -891,21 +885,16 @@
             <h2>Care Instructions</h2>
             <div class="divider"></div>
         </div>
-        <div class="care-content" style="max-width: 900px; margin: 3rem auto;">
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-                <div style="text-align: left; padding: 2rem; background: white; border-left: 4px solid var(--accent-gold);">
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--soft-black);">Hand Wash Only</h3>
-                    <p style="color: var(--charcoal); font-size: 0.9rem; line-height: 1.6;">Clean gently with mild soap and warm water. Pat dry with a soft cloth.</p>
-                </div>
-                <div style="text-align: left; padding: 2rem; background: white; border-left: 4px solid var(--accent-gold);">
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--soft-black);">No Dishwasher</h3>
-                    <p style="color: var(--charcoal); font-size: 0.9rem; line-height: 1.6;">Do not place in the dishwasher as high heat may damage the artwork.</p>
-                </div>
-                <div style="text-align: left; padding: 2rem; background: white; border-left: 4px solid var(--accent-gold);">
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--soft-black);">Not Food-Safe</h3>
-                    <p style="color: var(--charcoal); font-size: 0.9rem; line-height: 1.6;">These pieces are not food-safe. Designed to be decorative only. Not microwave-safe.</p>
-                </div>
-            </div>
+        <div style="max-width: 700px; margin: 3rem auto; color: var(--charcoal); line-height: 1.8;">
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">
+                <strong style="color: var(--soft-black);">Hand Wash Only:</strong> Clean gently with mild soap and warm water. Pat dry with a soft cloth.
+            </p>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">
+                <strong style="color: var(--soft-black);">No Dishwasher:</strong> Do not place in the dishwasher as high heat may damage the artwork.
+            </p>
+            <p style="font-size: 1.05rem; margin-bottom: 0;">
+                <strong style="color: var(--soft-black);">Not Food-Safe:</strong> These pieces are not food-safe. Designed to be decorative only. Not microwave-safe.
+            </p>
         </div>
     </section>
 
@@ -1016,8 +1005,8 @@
                     <button onclick="calculateShipping()" style="width: 100%; padding: 1rem; background-color: var(--soft-black); color: var(--cream); border: 2px solid var(--soft-black); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;">Calculate Shipping</button>
                     
                     <div id="shippingResult" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--beige); border-radius: 2px; display: none;">
-                        <p style="font-size: 1.2rem; color: var(--soft-black); margin: 0; font-weight: 500;"></p>
-                        <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.5rem;"></p>
+                        <p id="shippingPrice" style="font-size: 1.2rem; color: var(--soft-black); margin: 0; font-weight: 500;"></p>
+                        <p id="shippingDetails" style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.5rem;"></p>
                     </div>
                 </div>
             </div>
@@ -1080,9 +1069,8 @@
             const platterSize = document.getElementById('platterSize').value;
             const zipCode = document.getElementById('zipCode').value.trim();
             const resultDiv = document.getElementById('shippingResult');
-            const paragraphs = resultDiv.getElementsByTagName('p');
-            const resultPrice = paragraphs[0];
-            const resultDetails = paragraphs[1];
+            const resultPrice = document.getElementById('shippingPrice');
+            const resultDetails = document.getElementById('shippingDetails');
             
             // Validate ZIP code
             if (!zipCode || zipCode.length !== 5 || !/^\d{5}$/.test(zipCode)) {
@@ -1095,37 +1083,29 @@
             const zip = parseInt(zipCode);
             
             // Determine USPS zone from 07652 based on destination ZIP prefix
-            // Using first 3 digits for zone determination
-            const prefix = Math.floor(zip / 100); // Gets first 3 digits
+            const prefix = Math.floor(zip / 100);
             let zone;
             let zoneName;
             
             if (prefix >= 0 && prefix <= 99) {
-                // 00000-09999: Zone 1-2 (NJ, NY, CT, nearby areas)
                 zone = 2; 
                 zoneName = "Local Zone (NJ, NY, nearby)";
             } else if (prefix >= 100 && prefix <= 199) {
-                // 10000-19999: Zone 3 (New England, PA, DE)
                 zone = 3; 
                 zoneName = "Zone 3 (New England, PA)";
             } else if (prefix >= 200 && prefix <= 269) {
-                // 20000-26999: Zone 4 (DC, MD, VA, WV)
                 zone = 4; 
                 zoneName = "Zone 4 (Mid-Atlantic)";
             } else if (prefix >= 270 && prefix <= 399) {
-                // 27000-39999: Zone 5 (Southeast)
                 zone = 5; 
                 zoneName = "Zone 5 (Southeast)";
             } else if (prefix >= 400 && prefix <= 549) {
-                // 40000-54999: Zone 6 (Midwest, Central)
                 zone = 6; 
                 zoneName = "Zone 6 (Midwest)";
             } else if (prefix >= 550 && prefix <= 749) {
-                // 55000-74999: Zone 7 (Mountain states, Northern Central)
                 zone = 7; 
                 zoneName = "Zone 7 (Mountain states)";
             } else if (prefix >= 750 && prefix <= 999) {
-                // 75000-99999: Zone 8 (West Coast, Southwest)
                 zone = 8; 
                 zoneName = "Zone 8 (West Coast)";
             } else {
@@ -1135,28 +1115,15 @@
                 return;
             }
             
-            // USPS Priority Mail rates by weight and zone (2025 estimates)
-            // 11" plate: 11×11×4", 3 lbs actual weight
-            // 15" platter: 17×12×4", 4 lbs actual (dimensional weight ~4.9 lbs, so use 5 lb rate)
-            
+            // USPS Priority Mail rates by weight and zone
             const rates = {
-                '9': {  // 3 lbs
-                    2: 10.50,
-                    3: 11.50,
-                    4: 12.50,
-                    5: 14.00,
-                    6: 16.00,
-                    7: 18.50,
-                    8: 21.00
+                '9': {  // 11" plate - 3 lbs
+                    2: 10.50, 3: 11.50, 4: 12.50, 5: 14.00, 
+                    6: 16.00, 7: 18.50, 8: 21.00
                 },
-                '15': {  // 5 lbs (dimensional weight)
-                    2: 12.50,
-                    3: 14.00,
-                    4: 15.50,
-                    5: 17.50,
-                    6: 20.50,
-                    7: 23.50,
-                    8: 26.50
+                '15': {  // 15" platter - 5 lbs
+                    2: 12.50, 3: 14.00, 4: 15.50, 5: 17.50, 
+                    6: 20.50, 7: 23.50, 8: 26.50
                 }
             };
             
@@ -1184,11 +1151,30 @@
                     const menuToggle = document.getElementById('mobileMenuToggle');
                     if (navMenu.classList.contains('active')) {
                         navMenu.classList.remove('active');
-                        menuToggle.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
                     }
                 }
             });
         });
-        
+
         // Mobile menu toggle
-        const mobi
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            const isActive = navMenu.classList.contains('active');
+            navMenu.classList.toggle('active');
+            this.setAttribute('aria-expanded', !isActive);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.target);
+            if (!isClickInside && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+</body>
+</html>
