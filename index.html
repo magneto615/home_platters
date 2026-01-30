@@ -446,6 +446,84 @@
             font-size: 0.9rem;
         }
 
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 2px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 10001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem 2rem;
+            border-radius: 2px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         /* Pricing Section */
         .pricing {
             background: var(--cream);
@@ -904,42 +982,42 @@
             <div class="divider"></div>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('images/bartletts-full.jpg', 'The Bartletts - 21 Cobblestone Road')">
                 <img src="images/bartletts.jpg" alt="The Bartletts - Colonial home on rectangular platter with address">
                 <div class="gallery-overlay">
                     <h4>The Bartletts</h4>
                     <p>21 Cobblestone Road</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('images/fries-full.jpg', 'The Fries\' 2009 - Coastal Ranch Home')">
                 <img src="images/fries.jpg" alt="The Fries' 2009 - Coastal home with palm trees on oval platter">
                 <div class="gallery-overlay">
                     <h4>The Fries', 2009</h4>
                     <p>Coastal Ranch Home</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('images/god-bless-full.jpg', 'God Bless Our Home - Split-Level Home')">
                 <img src="images/god-bless.jpg" alt="God Bless Our Home - Split-level home on circular platter">
                 <div class="gallery-overlay">
                     <h4>God Bless Our Home</h4>
                     <p>Split-Level Home</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('images/brodys-full.jpg', 'The Brodys - Colonial Style Home')">
                 <img src="images/brodys.jpg" alt="The Brodys - Colonial home with dormers on circular platter">
                 <div class="gallery-overlay">
                     <h4>The Brodys</h4>
                     <p>Colonial Style Home</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('images/smiths-full.jpg', 'The Smiths, 2025 - Ranch Style Home')">
                 <img src="images/smiths.jpg" alt="The Smiths 2025 - Ranch home on wavy rectangular platter">
                 <div class="gallery-overlay">
                     <h4>The Smiths, 2025</h4>
                     <p>Ranch Style Home</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openLightbox('images/diamante-full.jpg', 'The Diamante Family - Contemporary Split-Level')">
                 <img src="images/diamante.jpg" alt="The Diamante Family - Modern home on oval platter">
                 <div class="gallery-overlay">
                     <h4>The Diamante Family</h4>
@@ -1055,12 +1133,46 @@
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 Home Painted Platters | Hand-Painted by Eleni Tadejevic</p>
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
     </footer>
 
     <script>
+        // Lightbox functions
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = imageSrc;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
         // Accurate USPS Priority Mail shipping calculator
         // Origin: 07652 (Kinnelon, NJ)
         // Rates based on 2025 USPS Priority Mail pricing
@@ -1169,12 +1281,4 @@
 
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
-            const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.target);
-            if (!isClickInside && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    </script>
-</body>
-</html>
+            const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.t
