@@ -809,6 +809,16 @@
     </style>
 </head>
 <body>
+    <!-- Hidden form for Netlify build-time detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="homeAddress" />
+        <input type="file" name="photo" />
+        <textarea name="message"></textarea>
+        <input type="text" name="bot-field" />
+    </form>
+
     <nav>
         <div class="container">
             <a href="#" class="logo">
@@ -1032,7 +1042,7 @@
                 <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
                 <a href="/cdn-cgi/l/email-protection#513e2335342311393e3c342130383f253435213d3025253423227f323e3c" class="email-link"><span class="__cf_email__" data-cfemail="335c41575641735b5c5e5643525a5d475657435f5247475641401d505c5e">[email&#160;protected]</span></a>
                 
-                <form class="contact-form" name="contact" method="POST" action="/thank-you.html" netlify netlify-honeypot="bot-field">
+                <form class="contact-form" name="contact" method="POST" action="/thank-you.html" netlify netlify-honeypot="bot-field" enctype="multipart/form-data">
                     <!-- Hidden fields for Netlify -->
                     <input type="hidden" name="form-name" value="contact" />
                     <p style="display: none;">
