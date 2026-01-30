@@ -1030,9 +1030,9 @@
             </div>
             <div class="contact-info">
                 <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
-                <a href="mailto:order@homepaintedplatters.com" class="email-link">order@homepaintedplatters.com</a>
+                <a href="/cdn-cgi/l/email-protection#513e2335342311393e3c342130383f253435213d3025253423227f323e3c" class="email-link"><span class="__cf_email__" data-cfemail="335c41575641735b5c5e5643525a5d475657435f5247475641401d505c5e">[email&#160;protected]</span></a>
                 
-                <form class="contact-form" name="contact" method="POST" action="/thank-you.html" data-netlify="true" data-netlify-honeypot="bot-field">
+                <form class="contact-form" name="contact" method="POST" action="/thank-you.html" netlify netlify-honeypot="bot-field">
                     <!-- Hidden fields for Netlify -->
                     <input type="hidden" name="form-name" value="contact" />
                     <p style="display: none;">
@@ -1052,8 +1052,13 @@
                         <input type="text" id="homeAddress" name="homeAddress" placeholder="For Google Street View reference">
                     </div>
                     <div class="form-group">
+                        <label for="photo">Upload Photo of Your Home (Optional)</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" style="padding: 0.5rem;">
+                        <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0.5rem;">Maximum file size: 10MB. Accepted formats: JPG, PNG, HEIC</p>
+                    </div>
+                    <div class="form-group">
                         <label for="message">Tell about your home</label>
-                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter size and shape, and any special requests. Please email photos separately to order@homepaintedplatters.com"></textarea>
+                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter size and shape, and any special requests."></textarea>
                     </div>
                     <button type="submit" class="cta-button" style="width: 100%;">Send Inquiry</button>
                 </form>
@@ -1066,7 +1071,7 @@
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Accurate USPS Priority Mail shipping calculator
         // Origin: 07652 (Kinnelon, NJ)
         // Rates based on 2025 USPS Priority Mail pricing
@@ -1185,9 +1190,4 @@
         });
         
         // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileMenu
+        const mobi
