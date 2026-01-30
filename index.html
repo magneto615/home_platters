@@ -1192,6 +1192,25 @@
     </footer>
 
     <script>
+        // Mobile menu toggle - MUST BE FIRST
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            const isActive = navMenu.classList.contains('active');
+            navMenu.classList.toggle('active');
+            this.setAttribute('aria-expanded', !isActive);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.target);
+            if (!isClickInside && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
         // Lightbox functions
         function openLightbox(imageSrc, caption) {
             const lightbox = document.getElementById('lightbox');
@@ -1290,8 +1309,6 @@
             resultDetails.textContent = `${zoneName} • USPS Priority Mail (2-3 business days)`;
         }
     
-        // Form submission handler
-
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1302,27 +1319,14 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
-                    const navMenu = document.getElementById('navMenu');
-                    const menuToggle = document.getElementById('mobileMenuToggle');
+                    // Close mobile menu if open (using variables defined at top)
                     if (navMenu.classList.contains('active')) {
                         navMenu.classList.remove('active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
                     }
                 }
             });
         });
-
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileMenuToggle.addEventListener('click', function() {
-            const isActive = navMenu.classList.contains('active');
-            navMenu.classList.toggle('active');
-            this.setAttribute('aria-expanded', !isActive);
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.t
+    </script>
+</body>
+</html>
