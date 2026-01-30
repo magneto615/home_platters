@@ -1070,10 +1070,16 @@
                 <div class="divider"></div>
             </div>
             
-            <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 3rem 0;">
+            <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0;">
+                <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">8" Plate</h3>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$80</div>
+                    <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Charming compact size for smaller spaces</p>
+                </div>
+
                 <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
                     <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">11" Plate</h3>
-                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$80</div>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$90</div>
                     <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Perfect for smaller homes or as part of a collection</p>
                 </div>
                 
@@ -1106,7 +1112,8 @@
                     <div style="margin-bottom: 1.5rem;">
                         <label style="display: block; margin-bottom: 0.5rem; color: var(--soft-black); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Platter Size</label>
                         <select id="platterSize" style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
-                            <option value="9">11" Plate</option>
+                            <option value="8">8" Plate</option>
+                            <option value="11">11" Plate</option>
                             <option value="15">15" Platter</option>
                         </select>
                     </div>
@@ -1294,7 +1301,11 @@
             
             // USPS Priority Mail rates by weight and zone
             const rates = {
-                '9': {  // 11" plate - 3 lbs
+                '8': {  // 8" plate - 3 lbs (same box as 11")
+                    2: 10.50, 3: 11.50, 4: 12.50, 5: 14.00, 
+                    6: 16.00, 7: 18.50, 8: 21.00
+                },
+                '11': {  // 11" plate - 3 lbs (same box as 8")
                     2: 10.50, 3: 11.50, 4: 12.50, 5: 14.00, 
                     6: 16.00, 7: 18.50, 8: 21.00
                 },
@@ -1323,13 +1334,4 @@
                     });
                     // Close mobile menu if open (using variables defined at top)
                     if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        mobileMenuToggle.classList.remove('active');
-                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                        navMenu.classList.rem
