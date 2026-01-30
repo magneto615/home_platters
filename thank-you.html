@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Home Painted Platters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F8F6F3;
+            --beige: #E8E4DF;
+            --soft-black: #2C2C2C;
+            --charcoal: #4A4A4A;
+            --warm-gray: #8B8680;
+            --accent-gold: #B8875B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--soft-black);
+            line-height: 1.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .thank-you-container {
+            max-width: 600px;
+            text-align: center;
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 2px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            margin-bottom: 2rem;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--soft-black);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .email {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .email:hover {
+            text-decoration: underline;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            background-color: var(--soft-black);
+            color: var(--cream);
+            text-decoration: none;
+            border: 2px solid var(--soft-black);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--soft-black);
+        }
+
+        .icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .thank-you-container {
+                padding: 3rem 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="Home Painted Platters">
+        </div>
+        
+        <div class="icon">✓</div>
+        
+        <h1>Thank You!</h1>
+        
+        <p>Your inquiry has been successfully received. We'll review your message and get back to you within 1-2 business days.</p>
+        
+        <p>If you have photos of your home to share, please email them to <a href="mailto:order@homepaintedplatters.com" class="email">order@homepaintedplatters.com</a></p>
+        
+        <p style="font-size: 0.95rem; color: var(--warm-gray);">We look forward to creating a beautiful custom piece for you!</p>
+        
+        <a href="index.html" class="cta-button">Return Home</a>
+    </div>
+</body>
+</html>
