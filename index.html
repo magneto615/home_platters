@@ -1032,8 +1032,11 @@
                 <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
                 <a href="/cdn-cgi/l/email-protection#513e2335342311393e3c342130383f253435213d3025253423227f323e3c" class="email-link"><span class="__cf_email__" data-cfemail="335c41575641735b5c5e5643525a5d475657435f5247475641401d505c5e">[email&#160;protected]</span></a>
                 
-                <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <form class="contact-form" name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
                     <input type="hidden" name="form-name" value="contact" />
+                    <div style="display: none;">
+                        <input name="bot-field" />
+                    </div>
                     
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -1048,8 +1051,13 @@
                         <input type="text" id="homeAddress" name="homeAddress" placeholder="For Google Street View reference">
                     </div>
                     <div class="form-group">
+                        <label for="photo">Upload Photo of Your Home (Optional)</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" style="padding: 0.5rem;">
+                        <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0.5rem;">Max 10MB. Formats: JPG, PNG, HEIC</p>
+                    </div>
+                    <div class="form-group">
                         <label for="message">Tell about your home</label>
-                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter size and shape, and any special requests. Please email photos separately to order@homepaintedplatters.com"></textarea>
+                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter size and shape, and any special requests."></textarea>
                     </div>
                     <button type="submit" class="cta-button" style="width: 100%;">Send Inquiry</button>
                 </form>
