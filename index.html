@@ -1334,4 +1334,13 @@
                     });
                     // Close mobile menu if open (using variables defined at top)
                     if (navMenu.classList.contains('active')) {
-                        navMenu.classList.rem
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
