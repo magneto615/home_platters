@@ -537,18 +537,6 @@
             transform: scale(1.2);
         }
 
-        .lightbox-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 1.1rem;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1rem 2rem;
-            border-radius: 2px;
-        }
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -1223,7 +1211,6 @@
         <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
         <div class="lightbox-content" onclick="event.stopPropagation()">
             <img id="lightbox-img" src="" alt="">
-            <div id="lightbox-caption" class="lightbox-caption"></div>
         </div>
     </div>
 
@@ -1266,10 +1253,8 @@
         function openLightbox(imageSrc, caption) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
             
             lightboxImg.src = imageSrc;
-            lightboxCaption.textContent = caption;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
