@@ -177,11 +177,11 @@
         /* Hero Section */
         .hero {
             margin-top: 90px;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 5%;
+            padding: 2rem 5%;
             background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
             position: relative;
             overflow: hidden;
@@ -200,18 +200,17 @@
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1200px;
             width: 100%;
-            text-align: center;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -220,11 +219,29 @@
         }
 
 
+        /* Logo and byline overlay at top */
+        .hero-text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+            padding: 2.5rem 4rem;
+            background: linear-gradient(180deg, 
+                rgba(248, 246, 243, 0.95) 0%, 
+                rgba(248, 246, 243, 0.85) 50%,
+                rgba(248, 246, 243, 0) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 8px 32px rgba(43, 43, 43, 0.06);
+        }
+
         .hero-logo {
-            height: 120px;
+            height: 100px;
             width: auto;
-            margin-bottom: 1rem;
-            animation: fadeIn 1s ease-out;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 4px 12px rgba(43, 43, 43, 0.08));
         }
 
         .hero-text .subtitle {
@@ -237,53 +254,78 @@
         }
 
         .hero-text .byline {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--warm-gray);
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 2.5rem;
+            margin: 0;
         }
 
-        .hero-text p {
-            font-size: 1.15rem;
-            color: var(--charcoal);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        /* Hero image as the foundation */
         .hero-image {
             position: relative;
-            margin: 3rem auto;
-            max-width: 800px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 0 3rem;
         }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(248, 246, 243, 0.8) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(40px);
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 30px 80px rgba(43, 43, 43, 0.2);
+            border-radius: 16px;
+            box-shadow: 
+                0 50px 150px rgba(43, 43, 43, 0.15),
+                0 0 0 1px rgba(184, 175, 165, 0.08);
+            filter: drop-shadow(0 20px 40px rgba(43, 43, 43, 0.08));
         }
 
+        /* Tagline and description overlays */
         .hero-tagline {
-            font-size: 1.3rem;
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.25rem;
             color: var(--accent-gold);
             font-style: italic;
-            margin: 2rem 0;
             font-weight: 500;
+            text-align: center;
+            padding: 1.5rem 3rem;
+            background: rgba(248, 246, 243, 0.92);
+            backdrop-filter: blur(12px);
+            border-radius: 50px;
+            box-shadow: 0 8px 32px rgba(184, 135, 91, 0.15);
+            z-index: 5;
+            max-width: 90%;
+            border: 1px solid rgba(184, 135, 91, 0.2);
+        }
+
+        .hero-content > p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 2.5rem auto;
+            padding: 2rem 3rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(43, 43, 43, 0.05);
         }
 
         .cta-button {
@@ -724,7 +766,21 @@
         /* Responsive Design */
         @media (max-width: 968px) {
             .hero-logo {
-                height: 100px;
+                height: 85px;
+            }
+            
+            .hero-text {
+                padding: 2rem 3rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.1rem;
+                padding: 1.25rem 2.5rem;
+            }
+            
+            .hero-content > p {
+                font-size: 1.05rem;
+                padding: 1.75rem 2.5rem;
             }
 
             .process-grid,
@@ -747,21 +803,33 @@
         }
 
         @media (max-width: 640px) {
-            /* Logo adjustments for mobile */
+            /* Logo and overlays adjustments for mobile */
             .hero-logo {
-                height: 80px;
+                height: 70px;
+            }
+            
+            .hero-text {
+                padding: 1.5rem 2rem;
             }
 
             .hero-text .byline {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
             
-            .hero-text p {
+            .hero-content > p {
                 font-size: 1rem;
+                padding: 1.5rem 2rem;
+                margin: 2rem auto;
             }
             
             .hero-tagline {
-                font-size: 1rem;
+                font-size: 0.9rem;
+                padding: 1rem 2rem;
+                bottom: 22%;
+            }
+            
+            .hero-image {
+                padding: 4rem 0 2rem;
             }
 
             .hero-text .subtitle {
@@ -920,7 +988,22 @@
         /* Extra small phones */
         @media (max-width: 375px) {
             .hero-logo {
-                height: 70px;
+                height: 60px;
+            }
+            
+            .hero-text {
+                padding: 1.25rem 1.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 0.8rem;
+                padding: 0.9rem 1.5rem;
+                bottom: 20%;
+            }
+            
+            .hero-content > p {
+                font-size: 0.95rem;
+                padding: 1.25rem 1.5rem;
             }
             
             .logo img {
@@ -980,16 +1063,18 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <img src="images/logo.png" alt="Home Painted Platters" class="hero-logo">
-                <p class="byline">By Eleni Tadejevic</p>
-            </div>
             <div class="hero-image">
-                <img src="images/group-full.jpg" alt="Hand-painted home portraits on ceramic platters">
+                <div class="hero-text">
+                    <img src="images/logo.png" alt="Home Painted Platters" class="hero-logo">
+                    <p class="byline">By Eleni Tadejevic</p>
+                </div>
+                <img src="images/group-plates.jpg" alt="Hand-painted home portraits on ceramic platters">
+                <p class="hero-tagline">Cherished Homes • Hand-Painted Memories • Timeless Keepsakes</p>
             </div>
-            <p class="hero-tagline">Cherished Homes • Hand-Painted Memories • Timeless Keepsakes</p>
             <p>Each platter is meticulously hand-painted with a portrait of your cherished home, creating a one-of-a-kind keepsake that celebrates your special place. Perfect for housewarmings, anniversaries, weddings, or any milestone moment.</p>
-            <a href="#contact" class="cta-button">Inquire Now</a>
+            <div style="text-align: center;">
+                <a href="#contact" class="cta-button">Inquire Now</a>
+            </div>
         </div>
     </section>
 
@@ -1232,7 +1317,6 @@
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
     </footer>
 
-    <script>
         // Mobile menu toggle - MUST BE FIRST
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navMenu = document.getElementById('navMenu');
@@ -1375,6 +1459,4 @@
         });
     </script>
 </body>
-
 </html>
-
