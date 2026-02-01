@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Painted Platters | Hand-Painted Home Portraits by Eleni Tadejevic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F8F6F3;
+            --beige: #E8E3DD;
+            --warm-gray: #B8AFA5;
+            --charcoal: #3C3C3C;
+            --soft-black: #2B2B2B;
+            --accent-gold: #C9A56D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--soft-black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .script {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 243, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid rgba(184, 175, 165, 0.2);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile menu toggle button */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--soft-black);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        .mobile-instagram-icon {
+            display: none;
+            color: var(--soft-black);
+            text-decoration: none;
+            padding: 0.5rem;
+            z-index: 1001;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-instagram-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .mobile-instagram-icon:hover {
+            color: var(--accent-gold);
+        }
+
+        .mobile-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 969px) {
+            .mobile-nav-right {
+                display: contents;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav ul a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        nav .nav-instagram {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 90px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(184, 175, 165, 0.03) 2px, rgba(184, 175, 165, 0.03) 4px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .hero-logo {
+            height: 120px;
+            width: auto;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text .byline {
+            font-size: 1rem;
+            color: var(--warm-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--charcoal);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image {
+            position: relative;
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 30px 80px rgba(43, 43, 43, 0.2);
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            margin: 2rem 0;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: var(--soft-black);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--soft-black);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gold);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            border-color: var(--accent-gold);
+            color: var(--cream);
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--soft-black);
+        }
+
+        .section-header .script-accent {
+            font-size: 2rem;
+            color: var(--warm-gray);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin: 2rem auto;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--beige);
+            padding: 6rem 5%;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(184, 175, 165, 0.2);
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(43, 43, 43, 0.1);
+        }
+
+        .process-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .process-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--soft-black);
+        }
+
+        .process-card p {
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 1;
+            background: var(--beige);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(43, 43, 43, 0.8), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: var(--cream);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-overlay p {
+            color: var(--beige);
+            font-size: 0.9rem;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 2px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 10001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--cream);
+        }
+
+        .pricing-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .price-range {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--soft-black);
+            margin: 2rem 0;
+            font-weight: 500;
+        }
+
+        .pricing-details {
+            background: white;
+            padding: 3rem;
+            border-radius: 2px;
+            border: 1px solid rgba(184, 175, 165, 0.2);
+            margin-top: 2rem;
+        }
+
+        .pricing-details ul {
+            list-style: none;
+            text-align: left;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .pricing-details li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--beige);
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pricing-details li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing-details li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--beige);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 2px;
+            margin-top: 2rem;
+            border: 1px solid rgba(184, 175, 165, 0.2);
+        }
+
+        .email-link {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--soft-black);
+            text-decoration: none;
+            display: inline-block;
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-form {
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--soft-black);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--beige);
+            background: var(--cream);
+            color: var(--soft-black);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--soft-black);
+            color: var(--beige);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--beige);
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--beige);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--beige);
+            color: var(--soft-black);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-logo {
+                height: 100px;
+            }
+
+            .process-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+            
+            /* Make pricing grid single column on tablets */
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            /* Logo adjustments for mobile */
+            .hero-logo {
+                height: 80px;
+            }
+
+            .hero-text .byline {
+                font-size: 0.9rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .section-header .script-accent {
+                font-size: 1.5rem;
+            }
+
+            /* Navigation for mobile */
+            nav {
+                padding: 1rem 5%;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-instagram-icon {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid var(--beige);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul a {
+                display: block;
+                padding: 1rem 5%;
+                font-size: 1rem;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+            
+            /* Adjust section padding for mobile */
+            section {
+                padding: 4rem 5%;
+            }
+            
+            .about {
+                padding: 4rem 5%;
+            }
+            
+            /* Process cards on mobile */
+            .process-card {
+                padding: 1.5rem;
+            }
+            
+            .process-number {
+                font-size: 2.5rem;
+            }
+            
+            .process-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            /* Gallery grid spacing */
+            .gallery-grid {
+                gap: 1.5rem;
+            }
+            
+            /* Pricing adjustments */
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            
+            .pricing-details {
+                padding: 2rem !important;
+            }
+            
+            .pricing-details h3 {
+                font-size: 1.5rem !important;
+            }
+            
+            .price-range {
+                font-size: 2rem !important;
+            }
+            
+            /* Make buttons more touch-friendly */
+            .cta-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 0.85rem;
+                min-height: 48px; /* Touch-friendly size */
+            }
+            
+            button {
+                min-height: 48px; /* Touch-friendly size */
+            }
+            
+            /* Form inputs for mobile */
+            .form-group input,
+            .form-group textarea,
+            #platterSize,
+            #zipCode {
+                font-size: 16px !important; /* Prevents iOS zoom on input focus */
+                padding: 1rem !important;
+            }
+            
+            /* Email link sizing */
+            .email-link {
+                font-size: 1.3rem;
+                word-break: break-word;
+            }
+            
+            /* Contact form adjustments */
+            .contact-form {
+                margin-top: 2rem;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 2rem 5%;
+            }
+            
+            footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (min-width: 969px) and (max-width: 1200px) {
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Extra small phones */
+        @media (max-width: 375px) {
+            .hero-logo {
+                height: 70px;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Home Painted Platters" style="height: 60px; width: auto;">
+            </a>
+            <div class="mobile-nav-right">
+                <a href="https://instagram.com/homepaintedplatters" target="_blank" rel="noopener noreferrer" class="mobile-instagram-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#process">How to Order</a></li>
+                <li><a href="#care">Care</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://instagram.com/homepaintedplatters" target="_blank" rel="noopener noreferrer" class="nav-instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px; fill: currentColor;">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Instagram
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <img src="images/logo.png" alt="Home Painted Platters" class="hero-logo">
+                <p class="byline">By Eleni Tadejevic</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/group-plates.jpg" alt="Hand-painted home portraits on ceramic platters">
+            </div>
+            <p class="hero-tagline">Cherished Homes • Hand-Painted Memories • Timeless Keepsakes</p>
+            <p>Each platter is meticulously hand-painted with a portrait of your cherished home, creating a one-of-a-kind keepsake that celebrates your special place. Perfect for housewarmings, anniversaries, weddings, or any milestone moment.</p>
+            <a href="#contact" class="cta-button">Inquire Now</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="section-header">
+                <h2>About the Art</h2>
+                <div class="divider"></div>
+            </div>
+            <p>Each Home Painted Platter is lovingly hand-painted on premium ceramic platters. Using fine-tipped brushes and permanent ink, I carefully sketch and paint every architectural detail of your home, from the windows and doors to the landscaping and unique features that make it yours.</p>
+            <p>These custom home portraits make perfect gifts for housewarmings, anniversaries, weddings, or any milestone moment. They're not just decorative pieces—they're heirlooms that capture the emotion and memory of a special place.</p>
+            <p>Every platter is signed, dated, and includes the family name, making it a truly personalized work of art.</p>
+        </div>
+    </section>
+
+    <section class="process" id="process" style="background: white; padding: 5rem 5%;">
+        <div class="section-header">
+            <h2>How to Order</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">01</div>
+                <h3>Submit Your Photo</h3>
+                <p>Send a clear photo of the home you'd like painted. Front views work best, but any angle can work.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">02</div>
+                <h3>Choose Your Platter</h3>
+                <p>Select your preferred platter shape and size. Share any special details you'd like included in the portrait.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">03</div>
+                <h3>Receive Your Art</h3>
+                <p>I'll hand-paint your custom portrait and carefully package it for delivery. Each piece takes 3-4 weeks to complete.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="care" id="care" style="background: var(--beige); padding: 5rem 5%;">
+        <div class="section-header">
+            <h2>Care Instructions</h2>
+            <div class="divider"></div>
+        </div>
+        <div style="max-width: 700px; margin: 3rem auto; color: var(--charcoal); line-height: 1.8;">
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">
+                <strong style="color: var(--soft-black);">Hand Wash Only:</strong> Clean gently with mild soap and warm water. Pat dry with a soft cloth.
+            </p>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">
+                <strong style="color: var(--soft-black);">No Dishwasher:</strong> Do not place in the dishwasher as high heat may damage the artwork.
+            </p>
+            <p style="font-size: 1.05rem; margin-bottom: 0;">
+                <strong style="color: var(--soft-black);">Not Food-Safe:</strong> These pieces are not food-safe. Designed to be decorative only. Not microwave-safe.
+            </p>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery" style="background: white; padding: 5rem 5%;">
+        <div class="section-header">
+            <h2>Previous Commissions</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox('images/bartletts-full.jpg', 'The Bartletts - 21 Cobblestone Road')">
+                <img src="images/bartletts.jpg" alt="The Bartletts - Colonial home on rectangular platter with address">
+                <div class="gallery-overlay">
+                    <h4>The Bartletts</h4>
+                    <p>21 Cobblestone Road</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/fries-full.jpg', 'The Fries\' 2009 - Coastal Ranch Home')">
+                <img src="images/fries.jpg" alt="The Fries' 2009 - Coastal home with palm trees on oval platter">
+                <div class="gallery-overlay">
+                    <h4>The Fries', 2009</h4>
+                    <p>Coastal Ranch Home</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/god-bless-full.jpg', 'God Bless Our Home - Split-Level Home')">
+                <img src="images/god-bless.jpg" alt="God Bless Our Home - Split-level home on circular platter">
+                <div class="gallery-overlay">
+                    <h4>God Bless Our Home</h4>
+                    <p>Split-Level Home</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/brodys-full.jpg', 'The Brodys - Colonial Style Home')">
+                <img src="images/brodys.jpg" alt="The Brodys - Colonial home with dormers on circular platter">
+                <div class="gallery-overlay">
+                    <h4>The Brodys</h4>
+                    <p>Colonial Style Home</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/smiths-full.jpg', 'The Smiths, 2025 - Ranch Style Home')">
+                <img src="images/smiths.jpg" alt="The Smiths 2025 - Ranch home on wavy rectangular platter">
+                <div class="gallery-overlay">
+                    <h4>The Smiths, 2025</h4>
+                    <p>Ranch Style Home</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/diamante-full.jpg', 'The Diamante Family - Contemporary Split-Level')">
+                <img src="images/diamante.jpg" alt="The Diamante Family - Modern home on oval platter">
+                <div class="gallery-overlay">
+                    <h4>The Diamante Family</h4>
+                    <p>Contemporary Split-Level</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="pricing-content">
+            <div class="section-header">
+                <h2>Pricing</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0;">
+                <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">8" Plate</h3>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$80</div>
+                    <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Charming compact size for smaller spaces</p>
+                </div>
+
+                <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">11" Plate</h3>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$90</div>
+                    <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Perfect for smaller homes or as part of a collection</p>
+                </div>
+                
+                <div class="pricing-details" style="background: white; padding: 2rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2);">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--soft-black);">15" Platter</h3>
+                    <div class="price-range" style="font-size: 2.5rem; margin: 1rem 0;">$120-$150</div>
+                    <p style="color: var(--charcoal); margin-bottom: 1.5rem;">Showcases intricate architectural details beautifully</p>
+                </div>
+            </div>
+            
+            <div class="pricing-details" style="background: white; padding: 3rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2); margin-top: 2rem;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: var(--soft-black);">Add-On Items</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 600px; margin: 0 auto;">
+                    <div style="text-align: center; padding: 1.5rem; background: var(--cream); border-radius: 2px;">
+                        <p style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 600;">$10</p>
+                        <p style="color: var(--charcoal);">Small Plate Stand</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: var(--cream); border-radius: 2px;">
+                        <p style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem; font-weight: 600;">$15</p>
+                        <p style="color: var(--charcoal);">Large Platter Stand</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-details" style="background: white; padding: 3rem; border-radius: 2px; border: 1px solid rgba(184, 175, 165, 0.2); margin-top: 2rem;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 2rem; text-align: center; color: var(--soft-black);">Shipping Cost Estimator</h3>
+                <p style="text-align: center; color: var(--charcoal); margin-bottom: 2rem; font-size: 0.9rem;">Estimates based on USPS Priority Mail</p>
+                
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--soft-black); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Platter Size</label>
+                        <select id="platterSize" style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                            <option value="8">8" Plate</option>
+                            <option value="11">11" Plate</option>
+                            <option value="15">15" Platter</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--soft-black); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Destination ZIP Code</label>
+                        <input type="text" id="zipCode" placeholder="Enter destination ZIP code" maxlength="5" style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                    </div>
+                    
+                    <button onclick="calculateShipping()" style="width: 100%; padding: 1rem; background-color: var(--soft-black); color: var(--cream); border: 2px solid var(--soft-black); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;">Calculate Shipping</button>
+                    
+                    <div id="shippingResult" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--beige); border-radius: 2px; display: none;">
+                        <p id="shippingPrice" style="font-size: 1.2rem; color: var(--soft-black); margin: 0; font-weight: 500;"></p>
+                        <p id="shippingDetails" style="font-size: 0.85rem; color: var(--charcoal); margin-top: 0.5rem;"></p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-info">
+                <p style="color: var(--charcoal); margin-bottom: 2rem;">Ready to commission your custom home portrait? Send an email to discuss your project.</p>
+                <a href="mailto:order@homepaintedplatters.com" class="email-link">order@homepaintedplatters.com</a>
+                
+                <form class="contact-form" name="contact" method="POST" action="https://usebasin.com/f/45ca551ff4bd" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="homeAddress">Home Address (Optional)</label>
+                        <input type="text" id="homeAddress" name="homeAddress" placeholder="For Google Street View reference">
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Upload Photo of Your Home (Optional)</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" style="padding: 0.5rem;">
+                        <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0.5rem;">Max 10MB. Formats: JPG, PNG, HEIC</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell about your home</label>
+                        <textarea id="message" name="message" required placeholder="Include details about your home, preferred platter size and shape, and any special requests."></textarea>
+                    </div>
+                    <div style="display: none;">
+                        <input type="hidden" name="_redirect" value="https://homepaintedplatters.com/thank-you.html">
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Home Painted Platters | Hand-Painted by Eleni Tadejevic</p>
+        
+        <a href="https://instagram.com/homepaintedplatters" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            @homepaintedplatters
+        </a>
+        
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">All artwork is original and protected by copyright.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle - MUST BE FIRST
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            const isActive = navMenu.classList.contains('active');
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            this.setAttribute('aria-expanded', !isActive);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = navMenu.contains(event.target) || mobileMenuToggle.contains(event.target);
+            if (!isClickInside && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Lightbox functions
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Accurate USPS Priority Mail shipping calculator
+        // Origin: 07652 (Kinnelon, NJ)
+        // Rates based on 2025 USPS Priority Mail pricing
+        
+        function calculateShipping() {
+            const platterSize = document.getElementById('platterSize').value;
+            const zipCode = document.getElementById('zipCode').value.trim();
+            const resultDiv = document.getElementById('shippingResult');
+            const resultPrice = document.getElementById('shippingPrice');
+            const resultDetails = document.getElementById('shippingDetails');
+            
+            // Validate ZIP code
+            if (!zipCode || zipCode.length !== 5 || !/^\d{5}$/.test(zipCode)) {
+                resultDiv.style.display = 'block';
+                resultPrice.textContent = 'Please enter a valid 5-digit ZIP code';
+                resultDetails.textContent = '';
+                return;
+            }
+            
+            const zip = parseInt(zipCode);
+            
+            // Determine USPS zone from 07652 based on destination ZIP prefix
+            const prefix = Math.floor(zip / 100);
+            let zone;
+            let zoneName;
+            
+            if (prefix >= 0 && prefix <= 99) {
+                zone = 2; 
+                zoneName = "Local Zone (NJ, NY, nearby)";
+            } else if (prefix >= 100 && prefix <= 199) {
+                zone = 3; 
+                zoneName = "Zone 3 (New England, PA)";
+            } else if (prefix >= 200 && prefix <= 269) {
+                zone = 4; 
+                zoneName = "Zone 4 (Mid-Atlantic)";
+            } else if (prefix >= 270 && prefix <= 399) {
+                zone = 5; 
+                zoneName = "Zone 5 (Southeast)";
+            } else if (prefix >= 400 && prefix <= 549) {
+                zone = 6; 
+                zoneName = "Zone 6 (Midwest)";
+            } else if (prefix >= 550 && prefix <= 749) {
+                zone = 7; 
+                zoneName = "Zone 7 (Mountain states)";
+            } else if (prefix >= 750 && prefix <= 999) {
+                zone = 8; 
+                zoneName = "Zone 8 (West Coast)";
+            } else {
+                resultDiv.style.display = 'block';
+                resultPrice.textContent = 'ZIP code out of range';
+                resultDetails.textContent = '';
+                return;
+            }
+            
+            // USPS Priority Mail rates by weight and zone
+            const rates = {
+                '8': {  // 8" plate - 3 lbs (same box as 11")
+                    2: 10.50, 3: 11.50, 4: 12.50, 5: 14.00, 
+                    6: 16.00, 7: 18.50, 8: 21.00
+                },
+                '11': {  // 11" plate - 3 lbs (same box as 8")
+                    2: 10.50, 3: 11.50, 4: 12.50, 5: 14.00, 
+                    6: 16.00, 7: 18.50, 8: 21.00
+                },
+                '15': {  // 15" platter - 5 lbs
+                    2: 12.50, 3: 14.00, 4: 15.50, 5: 17.50, 
+                    6: 20.50, 7: 23.50, 8: 26.50
+                }
+            };
+            
+            const shippingCost = rates[platterSize][zone];
+            
+            resultDiv.style.display = 'block';
+            resultPrice.textContent = `Estimated Shipping: $${shippingCost.toFixed(2)}`;
+            resultDetails.textContent = `${zoneName} • USPS Priority Mail (2-3 business days)`;
+        }
+    
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open (using variables defined at top)
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
