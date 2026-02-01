@@ -6,7 +6,7 @@
     <title>Home Painted Platters | Hand-Painted Home Portraits by Eleni Tadejevic</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --cream: #F8F6F3;
@@ -177,107 +177,142 @@
         /* Hero Section */
         .hero {
             margin-top: 90px;
-            min-height: 90vh;
+            min-height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 5%;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
+            padding: 0;
+            background: linear-gradient(to bottom, #f8f6f4 0%, #f0ebe6 100%);
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(184, 175, 165, 0.03) 2px, rgba(184, 175, 165, 0.03) 4px);
-            pointer-events: none;
+            overflow: visible;
         }
 
         .hero-content {
             max-width: 1400px;
             width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
+            background: linear-gradient(to bottom, #f8f6f4 0%, #f0ebe6 100%);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             position: relative;
-            z-index: 1;
         }
 
-        .hero-text {
-            animation: fadeInLeft 1s ease-out;
+        /* Flyer Header */
+        .hero-header {
+            text-align: center;
+            padding: 55px 40px 35px;
+            background: transparent;
         }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .hero-logo {
+            max-width: 1200px;
+            width: 85%;
+            height: auto;
+            margin: 0 auto 35px;
+            display: block;
         }
 
-        .hero-text h1 {
-            font-size: 5rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: var(--soft-black);
-        }
-
-        .hero-text .subtitle {
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--charcoal);
-            font-weight: 300;
-            margin-bottom: 0.5rem;
+        .hero-divider {
+            width: 420px;
+            height: 1px;
+            background: #c8b8a8;
+            margin: 28px auto;
         }
 
         .hero-text .byline {
-            font-size: 1rem;
-            color: var(--warm-gray);
-            letter-spacing: 2px;
+            font-size: 0.88em;
+            letter-spacing: 0.38em;
+            color: #998877;
             text-transform: uppercase;
-            margin-bottom: 2rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--charcoal);
-            margin-bottom: 2.5rem;
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.45em;
+            letter-spacing: 0.28em;
+            color: #7a6d5f;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.32em;
             font-style: italic;
-            line-height: 1.8;
+            color: #998877;
+            line-height: 1.65;
+            max-width: 1200px;
+            margin: 0 auto 0px;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Image Section */
+        .hero-image-section {
+            position: relative;
+            top: -100px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: visible;
+        }
+
+        .hero-fade-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: linear-gradient(to bottom, 
+                rgba(245, 240, 235,1) 0%, 
+                rgba(245, 240, 235,0.97) 12%,
+                rgba(245, 240, 235,0.85) 30%,
+                rgba(245, 240, 235,0.5) 60%,
+                rgba(245, 240, 235,0.2) 85%,
+                transparent 100%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         .hero-image {
-            position: relative;
-            animation: fadeInRight 1s ease-out;
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            width: 100%;
+            display: block;
         }
 
         .hero-image img {
             width: 100%;
-            height: auto;
-            border-radius: 2px;
-            box-shadow: 0 20px 60px rgba(43, 43, 43, 0.15);
+            display: block;
+        }
+
+        /* Price Section */
+        .hero-price-section {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            text-align: center;
+            background: #e8ddd0;
+            border: 1.5px solid #bfaf9f;
+            padding: 8px 95px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            white-space: nowrap;
+        }
+
+        .hero-price-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.55em;
+            letter-spacing: 0.18em;
+            color: #7a6d5f;
+            text-transform: uppercase;
+            font-weight: 400;
         }
 
         .cta-button {
@@ -293,6 +328,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            margin-top: 2rem;
         }
 
         .cta-button::before {
@@ -716,6 +752,51 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-header {
+                padding: 40px 20px 30px;
+            }
+
+            .hero-logo {
+                width: 90%;
+                margin-bottom: 30px;
+            }
+
+            .hero-divider {
+                width: 280px;
+            }
+
+            .hero-text .byline {
+                font-size: 0.75em;
+                letter-spacing: 0.32em;
+                margin-bottom: 40px;
+            }
+
+            .hero-title {
+                font-size: 1.15em;
+                letter-spacing: 0.22em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+
+            .hero-fade-top {
+                height: 110px;
+            }
+
+            .hero-price-section {
+                bottom: -28px;
+                padding: 16px 50px;
+            }
+
+            .hero-price-text {
+                font-size: 1.1em;
+                letter-spacing: 0.12em;
+            }
+        }
+
         @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -746,22 +827,49 @@
         }
 
         @media (max-width: 640px) {
-            /* Typography adjustments for mobile */
-            .hero-text h1 {
-                font-size: 2.5rem;
-                line-height: 1.2;
+            /* Hero section mobile adjustments */
+            .hero-header {
+                padding: 35px 15px 25px;
+            }
+
+            .hero-logo {
+                width: 92%;
+                margin-bottom: 25px;
+            }
+
+            .hero-divider {
+                width: 220px;
+                margin: 22px auto;
             }
 
             .hero-text .byline {
-                font-size: 0.9rem;
-            }
-            
-            .hero-text p {
-                font-size: 1rem;
+                font-size: 0.7em;
+                letter-spacing: 0.28em;
+                margin-bottom: 35px;
             }
 
-            .hero-text .subtitle {
-                font-size: 1.2rem;
+            .hero-title {
+                font-size: 1.05em;
+                letter-spacing: 0.2em;
+            }
+
+            .hero-subtitle {
+                font-size: 1em;
+                padding: 0 8px;
+            }
+
+            .hero-fade-top {
+                height: 100px;
+            }
+
+            .hero-price-section {
+                bottom: -25px;
+                padding: 14px 35px;
+            }
+
+            .hero-price-text {
+                font-size: 0.95em;
+                letter-spacing: 0.1em;
             }
 
             .section-header h2 {
@@ -915,8 +1023,40 @@
         
         /* Extra small phones */
         @media (max-width: 375px) {
-            .hero-text h1 {
-                font-size: 2rem;
+            .hero-header {
+                padding: 30px 12px 20px;
+            }
+
+            .hero-logo {
+                width: 95%;
+            }
+
+            .hero-divider {
+                width: 180px;
+            }
+
+            .hero-text .byline {
+                font-size: 0.65em;
+                letter-spacing: 0.25em;
+            }
+
+            .hero-title {
+                font-size: 0.95em;
+                letter-spacing: 0.18em;
+            }
+
+            .hero-subtitle {
+                font-size: 0.92em;
+            }
+
+            .hero-price-section {
+                bottom: -22px;
+                padding: 12px 25px;
+            }
+
+            .hero-price-text {
+                font-size: 0.85em;
+                letter-spacing: 0.08em;
             }
             
             .logo img {
@@ -974,85 +1114,31 @@
         </div>
     </nav>
 
-    <section class="hero" style="padding: 0; background: linear-gradient(to bottom, #f8f6f4 0%, #f0ebe6 100%);">
-    <div style="max-width: 1400px; margin: 0 auto; position: relative;">
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-header">
+                <img src="images/logo.png" alt="Home Painted Platters" class="hero-logo" />
+                <div class="hero-divider"></div>
+                <div class="hero-text">
+                    <p class="byline">BY ELENI TADEJEVIC</p>
+                </div>
+                <div class="hero-title">HAND-PAINTED PLATTERS</div>
+                <div class="hero-subtitle">A unique and thoughtful gift for new homeowners, anniversaries, weddings, or any milestone moment. Each platter is meticulously hand-painted with a portrait of your cherished home, creating a one-of-a-kind keepsake that celebrates your special place.</div>
+            </div>
 
-        <!-- Header -->
-        <div style="text-align: center; padding: 5rem 5% 3rem;">
-            <img src="images/logo-new.png"
-                 alt="Home Painted Platters"
-                 style="max-width: 900px; width: 85%; height: auto; margin-bottom: 2rem;" />
-
-            <div style="width: 300px; height: 1px; background: var(--accent-gold); margin: 2rem auto;"></div>
-
-            <p class="byline">BY ELENI TADEJEVIC</p>
-
-            <h2 style="
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 1.4rem;
-                letter-spacing: 0.35em;
-                text-transform: uppercase;
-                color: var(--charcoal);
-                margin-bottom: 1.5rem;">
-                Hand-Painted Platters
-            </h2>
-
-            <p style="
-                max-width: 1000px;
-                margin: 0 auto;
-                font-style: italic;
-                font-size: 1.2rem;
-                line-height: 1.8;
-                color: var(--charcoal);">
-                A unique and thoughtful gift for new homeowners, anniversaries, weddings, or any milestone moment.
-                Each platter is meticulously hand-painted with a portrait of your cherished home, creating a
-                one-of-a-kind keepsake that celebrates your special place.
-            </p>
-        </div>
-
-        <!-- Image -->
-        <div style="position: relative;">
-            <div style="
-                position: absolute;
-                top: 0; left: 0; right: 0;
-                height: 160px;
-                background: linear-gradient(to bottom,
-                    rgba(248,246,243,1),
-                    rgba(248,246,243,0.85),
-                    transparent);
-                z-index: 1;"></div>
-
-            <img src="images/group-full.jpg"
-                 alt="Hand-Painted Home Platters"
-                 style="width: 100%; display: block;" />
-
-            <!-- Price badge -->
-            <div style="
-                position: absolute;
-                bottom: -30px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--beige);
-                border: 1px solid var(--accent-gold);
-                padding: 0.75rem 3.5rem;
-                z-index: 2;">
-                <span style="
-                    font-family: 'Cormorant Garamond', serif;
-                    letter-spacing: 0.2em;
-                    font-size: 1.3rem;">
-                    PRICE RANGE: $80 – $150
-                </span>
+            <div class="hero-image-section">
+                <div class="hero-image-wrapper">
+                    <div class="hero-fade-top"></div>
+                    <div class="hero-image">
+                        <img src="images/group-plates.jpg" alt="Hand-Painted Home Platters" />
+                    </div>
+                    <div class="hero-price-section">
+                        <div class="hero-price-text">PRICE RANGE: $80 – $150</div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- CTA -->
-        <div style="text-align: center; padding: 4rem 0 2rem;">
-            <a href="#contact" class="cta-button">Inquire Now</a>
-        </div>
-
-    </div>
-</section>
-
+    </section>
 
     <section class="about" id="about">
         <div class="about-content">
@@ -1085,7 +1171,7 @@
             <div class="process-card">
                 <div class="process-number">03</div>
                 <h3>Receive Your Art</h3>
-                <p>I'll hand-paint your custom portrait and carefully package it for delivery. Each piece takes 3-4 weeks to complete.</p>
+                <p>I'll hand-paint your custom portrait and carefully package it for delivery. Each piece takes 2-3 weeks to complete.</p>
             </div>
         </div>
     </section>
