@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Painted Platters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: #f5f0eb;
+            color: #8b7d6b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .flyer-container {
+            max-width: 1400px;
+            width: 100%;
+            background: linear-gradient(to bottom, #f8f6f4 0%, #f0ebe6 100%);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            padding: 55px 40px 35px;
+            background: transparent;
+        }
+
+        .brand-logo {
+            max-width: 1200px;
+            width: 85%;
+            height: auto;
+            margin: 0 auto 35px;
+            display: block;
+        }
+
+        .divider {
+            width: 420px;
+            height: 1px;
+            background: #c8b8a8;
+            margin: 28px auto;
+        }
+
+        .byline {
+            font-size: 0.88em;
+            letter-spacing: 0.38em;
+            color: #998877;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.45em;
+            letter-spacing: 0.28em;
+            color: #7a6d5f;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: 1.32em;
+            font-style: italic;
+            color: #998877;
+            line-height: 1.65;
+            max-width: 1200px;
+            margin: 0 auto 0px;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-section {
+            position: relative;
+            top: -100px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: visible;
+        }
+
+        .fade-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: linear-gradient(to bottom, 
+                rgba(245, 240, 235,1) 0%, 
+                rgba(245, 240, 235,0.97) 12%,
+                rgba(245, 240, 235,0.85) 30%,
+                rgba(245, 240, 235,0.5) 60%,
+                rgba(245, 240, 235,0.2) 85%,
+                transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .main-image {
+            width: 100%;
+            display: block;
+        }
+
+        .price-section {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            text-align: center;
+            background: #e8ddd0;
+            border: 1.5px solid #bfaf9f;
+            padding: 8px 95px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            white-space: nowrap;
+        }
+
+        .price-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.55em;
+            letter-spacing: 0.18em;
+            color: #7a6d5f;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 75px 40px 65px;
+            background: transparent;
+        }
+
+        .contact-text {
+            font-size: 1.22em;
+            color: #7a6d5f;
+            margin-bottom: 28px;
+            letter-spacing: 0.015em;
+            font-weight: 300;
+        }
+
+        .email-wrapper {
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(232, 221, 208, 0.4) 6%, 
+                rgba(232, 221, 208, 0.7) 12%,
+                rgba(232, 221, 208, 0.8) 18%,
+                rgba(232, 221, 208, 0.8) 82%,
+                rgba(232, 221, 208, 0.7) 88%,
+                rgba(232, 221, 208, 0.4) 94%,
+                transparent 100%);
+            padding: 3px 0;
+            margin: 0 auto 22px;
+            display: inline-block;
+            min-width: 68%;
+        }
+
+        .contact-email {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55em;
+            color: #7a6d5f;
+            text-decoration: none;
+            padding: 17px 65px;
+            background: white;
+            display: inline-block;
+            letter-spacing: 0.015em;
+            transition: color 0.3s ease;
+            font-weight: 300;
+        }
+
+        .contact-email:hover {
+            color: #998877;
+        }
+
+        .website {
+            font-size: 1.28em;
+            color: #7a6d5f;
+            letter-spacing: 0.015em;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        .website a {
+            color: #7a6d5f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .website a:hover {
+            color: #998877;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px 30px;
+            }
+
+            .brand-logo {
+                width: 90%;
+                margin-bottom: 30px;
+            }
+
+            .divider {
+                width: 280px;
+            }
+
+            .byline {
+                font-size: 0.75em;
+                letter-spacing: 0.32em;
+                margin-bottom: 40px;
+            }
+
+            .main-title {
+                font-size: 1.15em;
+                letter-spacing: 0.22em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+
+            .fade-top {
+                height: 110px;
+            }
+
+            .price-section {
+                bottom: -28px;
+                padding: 16px 50px;
+            }
+
+            .price-text {
+                font-size: 1.1em;
+                letter-spacing: 0.12em;
+            }
+
+            .contact-section {
+                padding: 58px 20px 50px;
+            }
+
+            .contact-text {
+                font-size: 1.08em;
+            }
+
+            .contact-email {
+                font-size: 1.15em;
+                padding: 14px 28px;
+            }
+
+            .email-wrapper {
+                min-width: 85%;
+            }
+
+            .website {
+                font-size: 1.05em;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .flyer-container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer-container">
+        <div class="header">
+            <img src="images/logo-new.png" alt="Home Painted Platters" class="brand-logo" />
+            <div class="divider"></div>
+            <div class="byline">BY ELENI TADEJEVIC</div>
+            <div class="main-title">HAND-PAINTED PLATTERS</div>
+            <div class="subtitle">A unique and thoughtful gift for new homeowners, anniversaries, weddings, or any milestone moment. Each platter is meticulously hand-painted with a portrait of your cherished home, creating a one-of-a-kind keepsake that celebrates your special place.</div>
+        </div>
+
+        <div class="image-section">
+            <div class="image-wrapper">
+                <div class="fade-top"></div>
+                <img src="images/group-full.jpg" alt="Hand-Painted Home Platters" class="main-image" />
+                <div class="price-section">
+                    <div class="price-text">PRICE RANGE: $80 – $150</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
