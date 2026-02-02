@@ -673,6 +673,7 @@
             padding: 1.5rem;
             border-bottom: 2px solid var(--accent-gold);
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .email-link:hover {
@@ -1011,8 +1012,8 @@
             
             /* Email link sizing */
             .email-link {
-                font-size: 1.3rem;
-                word-break: break-word;
+                font-size: 1.1rem;
+                padding: 1rem;
             }
             
             /* Contact form adjustments */
@@ -1092,6 +1093,50 @@
             }
         }
 
+        /* Disable hover effects on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .mobile-instagram-icon:hover {
+                color: inherit;
+            }
+
+            nav a:hover {
+                color: inherit;
+            }
+
+            .cta-button:hover {
+                border-color: var(--soft-black);
+                color: var(--cream);
+            }
+
+            .cta-button:hover::before {
+                left: -100%;
+            }
+
+            .process-card:hover {
+                transform: none;
+            }
+
+            .gallery-item:hover {
+                transform: none;
+            }
+
+            .gallery-item:hover img {
+                transform: none;
+            }
+
+            .gallery-item:hover .gallery-overlay {
+                opacity: 0;
+            }
+
+            .email-link:hover {
+                color: var(--soft-black);
+            }
+
+            .social-link:hover {
+                color: var(--warm-gray);
+            }
+        }
+
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
@@ -1149,7 +1194,7 @@
                 <div class="hero-image-wrapper">
                     <div class="hero-fade-top"></div>
                     <div class="hero-image">
-                        <img src="images/group.jpg" alt="Hand-Painted Home Platters" />
+                        <img src="images/group-plates.jpg" alt="Hand-Painted Home Platters" />
                     </div>
                     <div class="hero-price-section">
                         <div class="hero-price-text">PRICE RANGE: $80 – $150</div>
