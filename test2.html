@@ -1431,9 +1431,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="photo">Upload Photos of Your Home (Optional)</label>
-                        <input type="file" id="photo" name="photo" accept="image/*" multiple style="padding: 0.5rem;">
-                        <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0.5rem;">Max 10MB per file. Formats: JPG, PNG, HEIC. You can select multiple photos.</p>
+                        <label>Upload Photos of Your Home (Optional)</label>
+                        <div id="photoUploads">
+                            <div class="photo-upload-row" style="margin-bottom: 0.75rem;">
+                                <input type="file" name="photo1" accept="image/*" style="padding: 0.5rem; width: 100%;">
+                            </div>
+                        </div>
+                        <button type="button" onclick="addPhotoUpload()" style="background: none; border: 1px solid var(--warm-gray); color: var(--charcoal); padding: 0.5rem 1rem; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; cursor: pointer; margin-top: 0.5rem; transition: all 0.3s ease;">+ Add Another Photo</button>
+                        <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0.5rem;">Max 10MB per file. Formats: JPG, PNG, HEIC</p>
                     </div>
                     <div class="form-group">
                         <label for="message">Tell about your home</label>
@@ -1470,6 +1475,25 @@
     </footer>
 
     <script>
+        // Dynamic photo upload fields (Basin requires separate named inputs)
+        let photoCount = 1;
+        function addPhotoUpload() {
+            if (photoCount >= 5) return; // Max 5 photos
+            photoCount++;
+            const container = document.getElementById('photoUploads');
+            const row = document.createElement('div');
+            row.className = 'photo-upload-row';
+            row.style.marginBottom = '0.75rem';
+            row.style.display = 'flex';
+            row.style.alignItems = 'center';
+            row.style.gap = '0.5rem';
+            row.innerHTML = `
+                <input type="file" name="photo${photoCount}" accept="image/*" style="padding: 0.5rem; width: 100%;">
+                <button type="button" onclick="this.parentElement.remove(); photoCount--;" style="background: none; border: none; color: var(--warm-gray); font-size: 1.4rem; cursor: pointer; padding: 0.25rem 0.5rem; line-height: 1;">&times;</button>
+            `;
+            container.appendChild(row);
+        }
+
         // Mobile menu toggle - MUST BE FIRST
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navMenu = document.getElementById('navMenu');
