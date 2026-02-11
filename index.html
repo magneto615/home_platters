@@ -1446,6 +1446,7 @@
                     </div>
                     <div style="display: none;">
                         <input type="hidden" name="_redirect" value="https://homepaintedplatters.com/thank-you.html">
+                        <input type="hidden" name="photoCount" id="photoCount" value="0">
                     </div>
                     <button type="submit" class="cta-button" style="width: 100%;">Send Inquiry</button>
                 </form>
@@ -1475,6 +1476,17 @@
     </footer>
 
     <script>
+        // Count photos before form submission
+        const contactForm = document.querySelector('form[name="contact"]');
+        contactForm.addEventListener('submit', function() {
+            const fileInputs = document.querySelectorAll('#photoUploads input[type="file"]');
+            let count = 0;
+            fileInputs.forEach(function(input) {
+                if (input.files && input.files.length > 0) count++;
+            });
+            document.getElementById('photoCount').value = count;
+        });
+
         // Dynamic photo upload fields (Basin requires separate named inputs)
         let photoCount = 1;
         function addPhotoUpload() {
