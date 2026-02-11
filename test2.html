@@ -635,7 +635,7 @@
         }
 
         .pricing-details li::before {
-            content: '✓';
+            content: 'âœ“';
             color: var(--accent-gold);
             font-weight: bold;
             font-size: 1.2rem;
@@ -1005,7 +1005,9 @@
             .form-group input,
             .form-group textarea,
             #platterSize,
-            #zipCode {
+            #zipCode,
+            #platterOption,
+            #standOption {
                 font-size: 16px !important; /* Prevents iOS zoom on input focus */
                 padding: 1rem !important;
             }
@@ -1197,7 +1199,7 @@
                         <img src="images/group-plates.jpg" alt="Hand-Painted Home Platters" />
                     </div>
                     <div class="hero-price-section">
-                        <div class="hero-price-text">PRICE RANGE: $80 – $150</div>
+                        <div class="hero-price-text">PRICE RANGE: $80 â€“ $150</div>
                     </div>
                 </div>
             </div>
@@ -1215,7 +1217,7 @@
                 <div class="divider"></div>
             </div>
             <p>Each Home Painted Platter is lovingly hand-painted on premium ceramic platters. Using fine-tipped brushes and permanent ink, I carefully sketch and paint every architectural detail of your home, from the windows and doors to the landscaping and unique features that make it yours.</p>
-            <p>These custom home portraits make perfect gifts for housewarmings, anniversaries, weddings, or any milestone moment. They're not just decorative pieces—they're heirlooms that capture the emotion and memory of a special place.</p>
+            <p>These custom home portraits make perfect gifts for housewarmings, anniversaries, weddings, or any milestone moment. They're not just decorative piecesâ€”they're heirlooms that capture the emotion and memory of a special place.</p>
             <p>Every platter is signed, dated, and includes the family name, making it a truly personalized work of art.</p>
         </div>
     </section>
@@ -1409,9 +1411,29 @@
                         <input type="text" id="homeAddress" name="homeAddress" placeholder="For Google Street View reference">
                     </div>
                     <div class="form-group">
-                        <label for="photo">Upload Photo of Your Home (Optional)</label>
-                        <input type="file" id="photo" name="photo" accept="image/*" style="padding: 0.5rem;">
-                        <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0.5rem;">Max 10MB. Formats: JPG, PNG, HEIC</p>
+                        <label for="platterOption">Platter Option</label>
+                        <select id="platterOption" name="platterOption" required style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                            <option value="" disabled selected>Select a platter size</option>
+                            <option value="9in-round">9" Round</option>
+                            <option value="11in-round">11" Round</option>
+                            <option value="14x11-wavy">14" x 11" Wavy</option>
+                            <option value="15x11-rectangle">15" x 11" Rectangle</option>
+                            <option value="15x11-oval">15" x 11" Oval</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="standOption">Stand Option</label>
+                        <select id="standOption" name="standOption" required style="width: 100%; padding: 1rem; border: 1px solid var(--beige); background: var(--cream); color: var(--soft-black); font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                            <option value="" disabled selected>Select a stand option</option>
+                            <option value="small">Small</option>
+                            <option value="large">Large</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Upload Photos of Your Home (Optional)</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" multiple style="padding: 0.5rem;">
+                        <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0.5rem;">Max 10MB per file. Formats: JPG, PNG, HEIC. You can select multiple photos.</p>
                     </div>
                     <div class="form-group">
                         <label for="message">Tell about your home</label>
@@ -1435,7 +1457,7 @@
     </div>
 
     <footer>
-        <p>© 2026 Home Painted Platters | Hand-Painted by Eleni Tadejevic</p>
+        <p>Â© 2026 Home Painted Platters | Hand-Painted by Eleni Tadejevic</p>
         
         <a href="https://instagram.com/homepaintedplatters" target="_blank" rel="noopener noreferrer" class="social-link">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1566,7 +1588,7 @@
             
             resultDiv.style.display = 'block';
             resultPrice.textContent = `Estimated Shipping: $${shippingCost.toFixed(2)}`;
-            resultDetails.textContent = `${zoneName} • USPS Priority Mail (2-3 business days)`;
+            resultDetails.textContent = `${zoneName} â€¢ USPS Priority Mail (2-3 business days)`;
         }
     
         // Smooth scroll for navigation
